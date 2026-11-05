@@ -1,8 +1,5 @@
 # Bài 4: Neural Architecture Search (NAS)
 
-> Ghi chú cho bạn (xóa khi viết xong): dưới mỗi mục là các sự kiện và con số từ buổi làm bài.
-> Hãy viết lại thành văn bằng giọng của bạn. Không cần dùng hết, chọn những gì bạn thấy quan trọng.
-
 ## 1. Bài này làm gì
 
 - Notebook: `examples/04_nas.ipynb`, dữ liệu MNIST.
@@ -12,7 +9,7 @@
 
 ## 2. Ý tưởng em hiểu được
 
-- Ba thành phần cốt lõi của bài toán NAS: search space - tập hợp architecture khả thi, search strategy - chiến lược tìm kiếm, trong bài đề xuất 2 cách là random search và evolutionary search, cách chấm điểm - đánh giá architecture dựa trên một lượng nhỏ epochs.
+- Ba thành phần cốt lõi của bài toán NAS: search space - tập hợp architecture khả thi, search strategy - chiến lược tìm kiếm, trong bài đề xuất 2 cách là random search và evolutionary search, cách chấm điểm - đánh giá architecture dựa trên ít epochs và ít dữ liệu.
 - Search space: 3 gen, tổng 3 × 5 × 2 = 30 kiến trúc.
   - depth (2, 3, 4): số stage, mỗi stage là conv → BatchNorm → ReLU → MaxPool. Ảnh 28 → 14 → 7 → 3 → 1.
   - width (8, 12, 16, 24, 32): số kênh stage đầu, gấp đôi mỗi stage, tối đa 128.
@@ -132,4 +129,4 @@ Thứ tự kiến trúc trong random search phụ thuộc seed, chạy lại not
 
 - NAS giúp tìm ra kiến trúc nhỏ hơn 1.65x với accuracy ngang baseline, từ đó mang đến lợi thế về size, tuy nhiên lợi thế về latency thì không ổn định.
 - Sử dụng proxy là đủ để loại kiến trúc tệ và xếp hạng thô, nhưng không phân định được các kiến trúc sát nhau, và thiên vị nhẹ chống model lớn.
-- NAS kết hợp được với các bài trước theo thứ tự tìm kiến trúc, rồi distill, prune, quantize.
+- Notebook gợi ý NAS kết hợp được với các bài trước theo thứ tự tìm kiến trúc, rồi distill, prune, quantize, em sẽ thử sau.
