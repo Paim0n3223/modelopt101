@@ -1,0 +1,10 @@
+# LIBERO SR official run (10 tasks x 20 episodes per config): the original + the 3 best from
+# the screening (NOTES §9). Ordered by priority; Ctrl+C and rerun the same command to resume.
+# name|ENV (VLA_GGUF=... picks another checkpoint)|vla-server flags
+bf16||
+q8v_fa_mmdef_s5|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 5
+q8v_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default
+bf16_fa_mmdef_s5||--flash-attn --mm-prec default --num-steps 5
+# Added 2026-11-11: 4 denoising steps (screen 36/40, offline rel 0.096). The 4 configs above are already
+# complete and are skipped automatically.
+q8v_fa_mmdef_s4|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 4

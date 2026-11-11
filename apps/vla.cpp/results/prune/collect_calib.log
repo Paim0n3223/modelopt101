@@ -1,0 +1,86 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+vla-cpp-direct[arch=smolvla]: connected to tcp://127.0.0.1:5555
+vla-cpp-direct: loading tokenizer HuggingFaceTB/SmolVLM2-500M-Instruct
+/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/gymnasium/utils/passive_env_checker.py:159: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/gymnasium/utils/passive_env_checker.py:159: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+task 0 episode 0: success=1 steps=210 kept=11
+task 0 episode 1: success=1 steps=149 kept=19
+task 0 episode 2: success=1 steps=192 kept=29
+== task 0: 29 samples, success 3/3, 142s -> /home/qdung/profile/calib/task_0.npz
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+task 1 episode 0: success=1 steps=172 kept=9
+task 1 episode 1: success=1 steps=149 kept=17
+task 1 episode 2: success=1 steps=131 kept=24
+== task 1: 24 samples, success 3/3, 118s -> /home/qdung/profile/calib/task_1.npz
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+task 2 episode 0: success=1 steps=125 kept=7
+task 2 episode 1: success=1 steps=134 kept=14
+task 2 episode 2: success=0 steps=500 kept=39
+== task 2: 39 samples, success 2/3, 183s -> /home/qdung/profile/calib/task_2.npz
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+task 3 episode 0: success=1 steps=130 kept=7
+task 3 episode 1: success=1 steps=137 kept=14
+task 3 episode 2: success=1 steps=134 kept=21
+== task 3: 21 samples, success 3/3, 112s -> /home/qdung/profile/calib/task_3.npz
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+task 4 episode 0: success=1 steps=152 kept=8
+task 4 episode 1: success=1 steps=160 kept=16
+task 4 episode 2: success=1 steps=157 kept=24
+== task 4: 24 samples, success 3/3, 126s -> /home/qdung/profile/calib/task_4.npz
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+task 5 episode 0: success=1 steps=145 kept=8
+task 5 episode 1: success=0 steps=500 kept=33
+task 5 episode 2: success=1 steps=146 kept=41
+== task 5: 41 samples, success 2/3, 192s -> /home/qdung/profile/calib/task_5.npz
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+task 6 episode 0: success=1 steps=185 kept=10
+task 6 episode 1: success=1 steps=187 kept=20
+task 6 episode 2: success=1 steps=147 kept=28
+== task 6: 28 samples, success 3/3, 142s -> /home/qdung/profile/calib/task_6.npz
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+task 7 episode 0: success=1 steps=155 kept=8
+task 7 episode 1: success=1 steps=148 kept=16
+task 7 episode 2: success=1 steps=124 kept=23
+== task 7: 23 samples, success 3/3, 118s -> /home/qdung/profile/calib/task_7.npz
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+task 8 episode 0: success=1 steps=175 kept=9
+task 8 episode 1: success=1 steps=173 kept=18
+task 8 episode 2: success=1 steps=150 kept=26
+== task 8: 26 samples, success 3/3, 132s -> /home/qdung/profile/calib/task_8.npz
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+task 9 episode 0: success=1 steps=191 kept=10
+task 9 episode 1: success=1 steps=138 kept=17
+task 9 episode 2: success=1 steps=140 kept=24
+== task 9: 24 samples, success 3/3, 125s -> /home/qdung/profile/calib/task_9.npz

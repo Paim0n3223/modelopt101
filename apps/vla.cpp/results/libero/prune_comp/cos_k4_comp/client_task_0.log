@@ -1,0 +1,47 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+vla-cpp-direct[arch=smolvla]: connected to tcp://127.0.0.1:5555
+vla-cpp-direct: loading tokenizer HuggingFaceTB/SmolVLM2-500M-Instruct
+/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/gymnasium/utils/passive_env_checker.py:159: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/gymnasium/utils/passive_env_checker.py:159: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+*** Episode 1/4
+- Episode finished after 500 steps.
+- Final reward: 0.00
+- Episode Information:
+{'task': 'pick_up_the_alphabet_soup_and_place_it_in_the_basket', 'task_id': 0, 'done': False, 'is_success': False}
+- Average inference time per step: 180.86 ms
+*** Episode 2/4
+- Episode finished after 500 steps.
+- Final reward: 0.00
+- Episode Information:
+{'task': 'pick_up_the_alphabet_soup_and_place_it_in_the_basket', 'task_id': 0, 'done': False, 'is_success': False}
+- Average inference time per step: 176.55 ms
+*** Episode 3/4
+- Episode finished after 163 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_alphabet_soup_and_place_it_in_the_basket', 'task_id': 0, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_alphabet_soup_and_place_it_in_the_basket', 'task_id': 0, 'done': True, 'is_success': True}}
+- Average inference time per step: 175.31 ms
+*** Episode 4/4
+- Episode finished after 166 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_alphabet_soup_and_place_it_in_the_basket', 'task_id': 0, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_alphabet_soup_and_place_it_in_the_basket', 'task_id': 0, 'done': True, 'is_success': True}}
+- Average inference time per step: 174.94 ms
+*** All episodes completed.
+- Success rate: 50.00%  (2/4)
+- Skipped (terminated mid-step): 0/4
+- Saved videos to: /home/qdung/profile/videos/sr/cos_k4_comp/smolvla/libero_object/task_0

@@ -1,0 +1,9 @@
+# Latency of the pruned checkpoints with vla-bench (run_flags.sh: vla-bench + vla_predict_check per config).
+# Run with WARMUP=3 REPS=20 for the TEMPLATE.md protocol; reference config for analyze_flags.py = bf16.
+# name|ENV (VLA_GGUF=... picks the checkpoint)|vla-server/vla-bench flags
+bf16||
+drop_30_31|VLA_GGUF=/home/qdung/models/smolvla-prune/drop_30_31.gguf|
+cka_k4|VLA_GGUF=/home/qdung/models/smolvla-prune/cka_k4.gguf|
+wexp_act25|VLA_GGUF=/home/qdung/models/smolvla-prune/wexp_act25.gguf|
+q8v_fa_mmdef_s5|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 5
+q8v_wexp25_fa_mmdef_s5|VLA_GGUF=/home/qdung/models/smolvla-prune/wexp_act25-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 5

@@ -1,0 +1,143 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+vla-cpp-direct[arch=smolvla]: connected to tcp://127.0.0.1:5555
+vla-cpp-direct: loading tokenizer HuggingFaceTB/SmolVLM2-500M-Instruct
+/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/gymnasium/utils/passive_env_checker.py:159: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/gymnasium/utils/passive_env_checker.py:159: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+*** Episode 1/20
+- Episode finished after 203 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 190.06 ms
+*** Episode 2/20
+- Episode finished after 272 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 191.12 ms
+*** Episode 3/20
+- Episode finished after 163 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 190.21 ms
+*** Episode 4/20
+- Episode finished after 156 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 190.73 ms
+*** Episode 5/20
+- Episode finished after 182 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 191.12 ms
+*** Episode 6/20
+- Episode finished after 208 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 190.48 ms
+*** Episode 7/20
+- Episode finished after 169 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 190.8 ms
+*** Episode 8/20
+- Episode finished after 218 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 190.8 ms
+*** Episode 9/20
+- Episode finished after 165 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 191.83 ms
+*** Episode 10/20
+- Episode finished after 167 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 191.19 ms
+*** Episode 11/20
+- Episode finished after 196 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 191.43 ms
+*** Episode 12/20
+- Episode finished after 165 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 190.8 ms
+*** Episode 13/20
+- Episode finished after 172 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 190.03 ms
+*** Episode 14/20
+- Episode finished after 170 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 190.68 ms
+*** Episode 15/20
+- Episode finished after 192 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 191.22 ms
+*** Episode 16/20
+- Episode finished after 171 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 189.41 ms
+*** Episode 17/20
+- Episode finished after 155 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 191.2 ms
+*** Episode 18/20
+- Episode finished after 149 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 192.04 ms
+*** Episode 19/20
+- Episode finished after 149 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 191.65 ms
+*** Episode 20/20
+- Episode finished after 165 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_butter_and_place_it_in_the_basket', 'task_id': 6, 'done': True, 'is_success': True}}
+- Average inference time per step: 190.56 ms
+*** All episodes completed.
+- Success rate: 100.00%  (20/20)
+- Skipped (terminated mid-step): 0/20
+- Saved videos to: /home/qdung/vla.cpp/outputs/sr/bf16/smolvla/libero_object/task_6

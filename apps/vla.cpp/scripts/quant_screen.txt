@@ -1,0 +1,26 @@
+# name|env vars|vla flags   (first line = reference for the output deviation: original bf16 GGUF, default flags)
+# Quantized files made with: scripts/quantize_gguf.py --in smolvla-libero.gguf --out <f> --type <T> [--vision]
+# $HOME is not expanded here, so paths are absolute.
+default||
+q8_0|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0.gguf|
+q8_0_vis|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|
+q5_1|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q5_1.gguf|
+q5_1_vis|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q5_1-vis.gguf|
+q5_0|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q5_0.gguf|
+q5_0_vis|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q5_0-vis.gguf|
+q4_1|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_1.gguf|
+q4_1_vis|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_1-vis.gguf|
+q4_0|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_0.gguf|
+q4_0_vis|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_0-vis.gguf|
+# Same files with the fastest runtime flags from the flag screen
+fa_mmdef||--flash-attn --mm-prec default
+q8_0_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0.gguf|--flash-attn --mm-prec default
+q8_0_vis_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default
+q5_1_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q5_1.gguf|--flash-attn --mm-prec default
+q5_1_vis_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q5_1-vis.gguf|--flash-attn --mm-prec default
+q5_0_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q5_0.gguf|--flash-attn --mm-prec default
+q5_0_vis_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q5_0-vis.gguf|--flash-attn --mm-prec default
+q4_1_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_1.gguf|--flash-attn --mm-prec default
+q4_1_vis_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_1-vis.gguf|--flash-attn --mm-prec default
+q4_0_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_0.gguf|--flash-attn --mm-prec default
+q4_0_vis_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_0-vis.gguf|--flash-attn --mm-prec default

@@ -1,0 +1,272 @@
+start 2026-11-06 06:19:28 +0000
++ export CMAKE_POLICY_VERSION_MINIMUM=3.5
++ CMAKE_POLICY_VERSION_MINIMUM=3.5
++++ dirname eval/sim/libero/setup_libero.sh
+++ cd eval/sim/libero
+++ pwd
++ SCRIPT_DIR=/home/qdung/vla.cpp/eval/sim/libero
++ LIBERO_REPO=/home/qdung/vla.cpp/eval/sim/libero/LIBERO
++ LIBERO_UV_ENV=/home/qdung/vla.cpp/eval/sim/libero/libero_uv
+++ cd /home/qdung/vla.cpp/eval/sim/libero/../..
+++ pwd
++ REPO_ROOT=/home/qdung/vla.cpp/eval
++ GITMODULES_PATH=/home/qdung/vla.cpp/eval/.gitmodules
+++ git config -f /home/qdung/vla.cpp/eval/.gitmodules --get submodule.external_dependencies/LIBERO.url
+++ true
++ LIBERO_GIT_URL=
++ '[' -z '' ']'
++ LIBERO_GIT_URL=https://github.com/Lifelong-Robot-Learning/LIBERO.git
+++ dirname /home/qdung/vla.cpp/eval/sim/libero/LIBERO
++ mkdir -p /home/qdung/vla.cpp/eval/sim/libero
++ '[' -d /home/qdung/vla.cpp/eval/sim/libero/LIBERO/.git ']'
++ echo 'LIBERO repo already exists at /home/qdung/vla.cpp/eval/sim/libero/LIBERO, reusing existing checkout.'
+LIBERO repo already exists at /home/qdung/vla.cpp/eval/sim/libero/LIBERO, reusing existing checkout.
++ rm -rf /home/qdung/vla.cpp/eval/sim/libero/libero_uv
++ mkdir -p /home/qdung/vla.cpp/eval/sim/libero/libero_uv
++ uv venv /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv --python 3.10
+Using CPython 3.10.22
+Creating virtual environment at: eval/sim/libero/libero_uv/.venv
+Activate with: source eval/sim/libero/libero_uv/.venv/bin/activate
++ source /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/bin/activate
+++ '[' -n x ']'
+++ '[' /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/bin/activate = eval/sim/libero/setup_libero.sh ']'
+++ '[' false = true ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV
+++ '[' false = true ']'
+++ _OLD_VIRTUAL_PATH='/home/qdung/.local/bin:/usr/local/cuda-13.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/qdung/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Users/qdung/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/GitHub CLI:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files (x86)/cloudflared:/mnt/c/Users/qdung/.local/bin:/mnt/c/Users/qdung/miniconda3:/mnt/c/Users/qdung/miniconda3/Library/mingw-w64/bin:/mnt/c/Users/qdung/miniconda3/Library/usr/bin:/mnt/c/Users/qdung/miniconda3/Library/bin:/mnt/c/Users/qdung/miniconda3/Scripts:/mnt/c/Users/qdung/miniconda3/bin:/mnt/c/Users/qdung/miniconda3/condabin:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code:/mnt/c/Users/qdung/AppData/Local/Microsoft/WindowsApps:/mnt/c/Ruby34-x64/bin:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/qdung/.dotnet/tools:/mnt/c/Users/qdung/AppData/Roaming/npmc:/mnt/c/Program Files/Git/Users/qdung/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts:/mnt/c/Users/qdung/AppData/Roaming/npm:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/GitHub CLI:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl:/mnt/c/Users/qdung/AppData/Roaming/npm'
+++ PATH='/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/bin:/home/qdung/.local/bin:/usr/local/cuda-13.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/qdung/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Users/qdung/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/GitHub CLI:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files (x86)/cloudflared:/mnt/c/Users/qdung/.local/bin:/mnt/c/Users/qdung/miniconda3:/mnt/c/Users/qdung/miniconda3/Library/mingw-w64/bin:/mnt/c/Users/qdung/miniconda3/Library/usr/bin:/mnt/c/Users/qdung/miniconda3/Library/bin:/mnt/c/Users/qdung/miniconda3/Scripts:/mnt/c/Users/qdung/miniconda3/bin:/mnt/c/Users/qdung/miniconda3/condabin:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code:/mnt/c/Users/qdung/AppData/Local/Microsoft/WindowsApps:/mnt/c/Ruby34-x64/bin:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/qdung/.dotnet/tools:/mnt/c/Users/qdung/AppData/Roaming/npmc:/mnt/c/Program Files/Git/Users/qdung/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts:/mnt/c/Users/qdung/AppData/Roaming/npm:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/GitHub CLI:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl:/mnt/c/Users/qdung/AppData/Roaming/npm'
+++ export PATH
+++ '[' x '!=' x ']'
++++ basename /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv
+++ VIRTUAL_ENV_PROMPT=.venv
+++ export VIRTUAL_ENV_PROMPT
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(.venv) '
+++ export PS1
+++ alias pydoc
+++ true
+++ hash -r
++ uv pip install --requirements /home/qdung/vla.cpp/eval/sim/libero/LIBERO/requirements.txt
+Using Python 3.10.22 environment at: eval/sim/libero/libero_uv/.venv
+Resolved 122 packages in 1.99s
+Downloading nvidia-cudnn-cu13 (527.5MiB)
+Downloading nvidia-cublas (403.5MiB)
+Downloading torch (528.9MiB)
+ Downloaded nvidia-cublas
+ Downloaded nvidia-cudnn-cu13
+ Downloaded torch
+Prepared 3 packages in 29m 30s
+Installed 122 packages in 17.37s
+ + absl-py==2.5.1
+ + antlr4-python3-runtime==4.9.3
+ + attrs==26.1.0
+ + bddl==1.0.1
+ + certifi==2026.10.23
+ + charset-normalizer==3.5.2
+ + click==8.5.0
+ + cloudpickle==2.1.0
+ + cuda-bindings==13.4.4
+ + cuda-pathfinder==1.8.3
+ + cuda-toolkit==13.0.3.0
+ + cycler==0.12.1
+ + docker-pycreds==0.4.0
+ + easydict==1.9
+ + egl-probe==1.0.2
+ + einops==0.4.1
+ + etils==1.13.0
+ + exceptiongroup==1.3.1
+ + fastjsonschema==2.22.3
+ + filelock==4.1.0
+ + fonttools==4.65.0
+ + fsspec==2026.9.0
+ + future==0.18.2
+ + gitdb==4.0.12
+ + gitpython==3.2.1
+ + glfw==2.11.0
+ + grpcio==1.85.1
+ + gym==0.25.2
+ + gym-notices==0.1.0
+ + h5py==3.16.0
+ + hf-xet==1.8.0
+ + huggingface-hub==0.36.2
+ + hydra-core==1.2.0
+ + idna==3.20
+ + imageio==2.38.0
+ + imageio-ffmpeg==0.8.1
+ + importlib-resources==7.1.0
+ + iniconfig==2.3.1
+ + jinja2==3.1.6
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + jupyter-core==5.9.1
+ + jupytext==1.19.6
+ + kiwisolver==1.5.1
+ + llvmlite==0.50.0
+ + markdown==3.10.3
+ + markdown-it-py==4.2.0
+ + markupsafe==3.0.4
+ + matplotlib==3.5.3
+ + mdit-py-plugins==0.6.1
+ + mdurl==0.1.2
+ + mpmath==1.3.0
+ + mujoco==3.17.0
+ + nbformat==5.11.1
+ + networkx==3.4.2
+ + numba==0.68.1
+ + numpy==1.22.4
+ + nvidia-cublas==13.1.1.3
+ + nvidia-cuda-cupti==13.0.85
+ + nvidia-cuda-nvrtc==13.0.88
+ + nvidia-cuda-runtime==13.0.96
+ + nvidia-cudnn-cu13==9.24.0.43
+ + nvidia-cufft==12.0.0.61
+ + nvidia-cufile==1.15.1.6
+ + nvidia-curand==10.4.0.35
+ + nvidia-cusolver==12.0.4.66
+ + nvidia-cusparse==12.6.3.3
+ + nvidia-cusparselt-cu13==0.8.1
+ + nvidia-nccl-cu13==2.30.7
+ + nvidia-nvjitlink==13.5.37
+ + nvidia-nvshmem-cu13==3.4.5
+ + nvidia-nvtx==13.0.85
+ + omegaconf==2.4.0
+ + opencv-python==4.6.0.66
+ + packaging==26.3
+ + pathtools==0.1.2
+ + pillow==12.3.0
+ + platformdirs==4.12.4
+ + pluggy==1.7.0
+ + promise==2.3
+ + protobuf==3.20.3
+ + psutil==7.2.2
+ + pygments==2.21.0
+ + pyopengl==3.1.10
+ + pyparsing==3.3.3
+ + pytest==9.2.0
+ + python-dateutil==3.0.0
+ + pyyaml==6.0.3
+ + referencing==0.37.0
+ + regex==2026.9.29
+ + requests==2.34.2
+ + robomimic==0.2.0
+ + robosuite==1.4.0
+ + rpds-py==0.30.0
+ + scipy==1.13.1
+ + sentry-sdk==2.74.0
+ + setproctitle==1.3.8
+ + setuptools==84.2.1
+ + shortuuid==1.0.13
+ + six==1.17.0
+ + smmap==5.0.3
+ + sympy==1.14.0
+ + tensorboard==2.20.0
+ + tensorboard-data-server==0.7.2
+ + tensorboardx==2.6.5
+ + termcolor==3.3.0
+ + thop==0.1.1.post2209072238
+ + tokenizers==0.12.1
+ + tomli==2.5.0
+ + torch==2.14.1
+ + torchvision==0.29.2
+ + tqdm==4.70.1
+ + traitlets==5.16.1
+ + transformers==4.21.1
+ + triton==3.8.0
+ + typing-extensions==4.16.0
+ + tzdata==2026.6
+ + urllib3==2.8.0
+ + wandb==0.13.1
+ + websockets==16.1.1
+ + werkzeug==3.1.9
+ + zipp==4.1.2
++ uv pip install -e /home/qdung/vla.cpp/eval/sim/libero/LIBERO --config-settings editable_mode=compat
+Using Python 3.10.22 environment at: eval/sim/libero/libero_uv/.venv
+Resolved 1 package in 1.08s
+   Building libero @ file:///home/qdung/vla.cpp/eval/sim/libero/LIBERO
+      Built libero @ file:///home/qdung/vla.cpp/eval/sim/libero/LIBERO
+Prepared 1 package in 183ms
+Installed 1 package in 5ms
+ + libero==0.1.0 (from file:///home/qdung/vla.cpp/eval/sim/libero/LIBERO)
++ uv pip install lerobot==0.4.3
+Using Python 3.10.22 environment at: eval/sim/libero/libero_uv/.venv
+Resolved 107 packages in 8.14s
+Downloading nvidia-cufft-cu12 (190.9MiB)
+Downloading nvidia-cusparselt-cu12 (149.5MiB)
+Downloading nvidia-cuda-cupti-cu12 (8.5MiB)
+Downloading pydantic-core (2.2MiB)
+Downloading aiohttp (1.8MiB)
+Downloading pandas (12.2MiB)
+Downloading numpy (16.0MiB)
+Downloading setuptools (1.0MiB)
+Downloading pyarrow (47.7MiB)
+Downloading hf-transfer (3.4MiB)
+Downloading wandb (22.0MiB)
+Downloading rerun-sdk (94.2MiB)
+Downloading nvidia-cudnn-cu12 (544.5MiB)
+Downloading torchcodec (1.3MiB)
+Downloading nvidia-nccl-cu12 (192.0MiB)
+Downloading nvidia-cusolver-cu12 (150.9MiB)
+Downloading nvidia-cuda-nvrtc-cu12 (22.6MiB)
+Downloading nvidia-cusparse-cu12 (206.5MiB)
+Downloading opencv-python-headless (51.5MiB)
+Downloading av (37.3MiB)
+Downloading nvidia-curand-cu12 (53.7MiB)
+Downloading nvidia-cufile-cu12 (1.1MiB)
+Downloading triton (148.4MiB)
+Downloading torchvision (7.1MiB)
+Downloading nvidia-cublas-cu12 (374.9MiB)
+Downloading cmake (28.3MiB)
+Downloading diffusers (3.9MiB)
+Downloading nvidia-nvjitlink-cu12 (18.8MiB)
+Downloading torch (783.1MiB)
+   Building evdev==1.9.3
+      Built evdev==1.9.3
+ Downloaded setuptools
+ Downloaded nvidia-cufile-cu12
+ Downloaded torchcodec
+ Downloaded aiohttp
+ Downloaded pydantic-core
+ Downloaded hf-transfer
+ Downloaded diffusers
+ Downloaded torchvision
+ Downloaded nvidia-cuda-cupti-cu12
+ Downloaded pandas
+ Downloaded numpy
+ Downloaded nvidia-nvjitlink-cu12
+ Downloaded wandb
+ Downloaded nvidia-cuda-nvrtc-cu12
+ Downloaded cmake
+ Downloaded av
+ Downloaded pyarrow
+ Downloaded opencv-python-headless
+ Downloaded nvidia-curand-cu12
+ Downloaded rerun-sdk
+ Downloaded triton
+ Downloaded nvidia-cusparselt-cu12
+ Downloaded nvidia-cusolver-cu12
+Downloading nvidia-cublas-cu12 (374.9MiB)
+Downloading torch (783.1MiB)
+Downloading nvidia-cufft-cu12 (190.9MiB)
+Downloading nvidia-cudnn-cu12 (544.5MiB)
+Downloading nvidia-nccl-cu12 (192.0MiB)
+Downloading nvidia-cusparse-cu12 (206.5MiB)
+Downloading nvidia-nccl-cu12 (192.0MiB)
+Downloading nvidia-cufft-cu12 (190.9MiB)
+Downloading torch (783.1MiB)
+Downloading nvidia-cudnn-cu12 (544.5MiB)
+Downloading nvidia-cublas-cu12 (374.9MiB)
+Downloading nvidia-cusparse-cu12 (206.5MiB)

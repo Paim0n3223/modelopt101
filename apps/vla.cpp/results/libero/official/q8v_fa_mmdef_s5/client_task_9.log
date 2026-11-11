@@ -1,0 +1,143 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+vla-cpp-direct[arch=smolvla]: connected to tcp://127.0.0.1:5555
+vla-cpp-direct: loading tokenizer HuggingFaceTB/SmolVLM2-500M-Instruct
+/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/gymnasium/utils/passive_env_checker.py:159: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/lib/python3.10/site-packages/gymnasium/utils/passive_env_checker.py:159: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/qdung/vla.cpp/eval/sim/libero/LIBERO/libero/libero/../datasets does not exist!
+*** Episode 1/20
+- Episode finished after 500 steps.
+- Final reward: 0.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': False, 'is_success': False}
+- Average inference time per step: 120.22 ms
+*** Episode 2/20
+- Episode finished after 133 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 122.5 ms
+*** Episode 3/20
+- Episode finished after 129 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 122.34 ms
+*** Episode 4/20
+- Episode finished after 500 steps.
+- Final reward: 0.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': False, 'is_success': False}
+- Average inference time per step: 122.17 ms
+*** Episode 5/20
+- Episode finished after 135 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 121.71 ms
+*** Episode 6/20
+- Episode finished after 139 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 121.32 ms
+*** Episode 7/20
+- Episode finished after 500 steps.
+- Final reward: 0.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': False, 'is_success': False}
+- Average inference time per step: 121.38 ms
+*** Episode 8/20
+- Episode finished after 139 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 122.65 ms
+*** Episode 9/20
+- Episode finished after 140 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 122.5 ms
+*** Episode 10/20
+- Episode finished after 500 steps.
+- Final reward: 0.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': False, 'is_success': False}
+- Average inference time per step: 122.06 ms
+*** Episode 11/20
+- Episode finished after 128 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 123.57 ms
+*** Episode 12/20
+- Episode finished after 134 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 122.3 ms
+*** Episode 13/20
+- Episode finished after 130 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 122.89 ms
+*** Episode 14/20
+- Episode finished after 127 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 120.95 ms
+*** Episode 15/20
+- Episode finished after 130 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 121.23 ms
+*** Episode 16/20
+- Episode finished after 132 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 124.32 ms
+*** Episode 17/20
+- Episode finished after 144 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 121.13 ms
+*** Episode 18/20
+- Episode finished after 165 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 120.51 ms
+*** Episode 19/20
+- Episode finished after 500 steps.
+- Final reward: 0.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': False, 'is_success': False}
+- Average inference time per step: 121.18 ms
+*** Episode 20/20
+- Episode finished after 135 steps.
+- Final reward: 1.00
+- Episode Information:
+{'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True, 'final_info': {'task': 'pick_up_the_orange_juice_and_place_it_in_the_basket', 'task_id': 9, 'done': True, 'is_success': True}}
+- Average inference time per step: 121.85 ms
+*** All episodes completed.
+- Success rate: 75.00%  (15/20)
+- Skipped (terminated mid-step): 0/20
+- Saved videos to: /home/qdung/vla.cpp/outputs/sr/q8v_fa_mmdef_s5/smolvla/libero_object/task_9

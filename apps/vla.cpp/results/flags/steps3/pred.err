@@ -1,0 +1,4 @@
+vla(smolvla): num_steps 3 (checkpoint 10)
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 4095 MiB):
+  Device 0: NVIDIA GeForce RTX 3050 Ti Laptop GPU, compute capability 8.6, VMM: yes, VRAM: 4095 MiB
+loaded: real_state=8 max_state=32 real_action=7 max_action=32 n_suffix=50 num_steps=3

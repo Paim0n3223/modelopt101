@@ -1,0 +1,5 @@
+== 01:40:29 q8v_fa_mmdef_s5  env=[VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[--flash-attn --mm-prec default --num-steps 5]
+== 01:41:43 q8v_fa_mmdef_s4  env=[VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[--flash-attn --mm-prec default --num-steps 4]
+== 01:42:58 q8v_fa_mmdef_s3  env=[VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[--flash-attn --mm-prec default --num-steps 3]
+== 01:44:12 q8v_fa_mmdef_s2  env=[VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[--flash-attn --mm-prec default --num-steps 2]
+== 01:45:26 done

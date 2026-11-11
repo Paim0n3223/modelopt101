@@ -1,0 +1,11 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+bf16_phase: 12 prompt tokens, 2 views, 3 warmup + 50 timed
+ms           median      p90
+total         252.9    356.2
+vision         91.5     92.3
+inference     104.1    224.1
+prefill        24.1     36.6
+denoise        80.2    190.3
+other          41.4     48.3
+roundtrip     270.2    369.8
+wrote /mnt/c/Users/qdung/Vin Robotics/modelopt101/apps/vla.cpp/results/profile/phase/bf16_phase.csv

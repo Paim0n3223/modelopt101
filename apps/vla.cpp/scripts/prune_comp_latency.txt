@@ -1,0 +1,10 @@
+# Latency of the compensated depth-pruned checkpoints with vla-bench (run_flags.sh, WARMUP=3 REPS=20),
+# alone (BF16, default flags) and combined with the recommended config (Q8_0 + vision, fa + mmdef, 5 steps).
+# Reference for analyze_flags.py = bf16. Pruned layers: cos_k2 = 20,21,25,26; cos_k4 = 11,12,16,17,20,21,25,26.
+# name|ENV (VLA_GGUF=... picks the checkpoint)|vla-bench flags
+bf16||
+cos_k2_comp|VLA_GGUF=/home/qdung/models/smolvla-prune/cos_k2_comp.gguf|
+cos_k4_comp|VLA_GGUF=/home/qdung/models/smolvla-prune/cos_k4_comp.gguf|
+q8v_fa_mmdef_s5|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 5
+q8v_cos_k2_comp_s5|VLA_GGUF=/home/qdung/models/smolvla-prune/cos_k2_comp-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 5
+q8v_cos_k4_comp_s5|VLA_GGUF=/home/qdung/models/smolvla-prune/cos_k4_comp-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 5

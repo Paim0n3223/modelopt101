@@ -1,0 +1,11 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+q8v_fa_mmdef_s5_phase: 12 prompt tokens, 2 views, 3 warmup + 50 timed
+ms           median      p90
+total         157.3    205.3
+vision         59.9     60.5
+inference      66.4    116.8
+prefill        17.2     29.8
+denoise        49.3     86.7
+other          29.0     30.9
+roundtrip     171.7    216.3
+wrote /mnt/c/Users/qdung/Vin Robotics/modelopt101/apps/vla.cpp/results/profile/phase/q8v_fa_mmdef_s5_phase.csv

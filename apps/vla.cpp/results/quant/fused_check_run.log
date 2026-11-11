@@ -1,0 +1,5 @@
+== 04:27:15 bf16_fused0  env=[VLA_FUSED_OPS=0]  flags=[]
+== 04:28:18 q8v_fused0  env=[VLA_FUSED_OPS=0 VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[]
+== 04:29:17 bf16_fa_fused0  env=[VLA_FUSED_OPS=0]  flags=[--flash-attn]
+== 04:30:19 q8v_fa_fused0  env=[VLA_FUSED_OPS=0 VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[--flash-attn]
+== 04:31:18 done

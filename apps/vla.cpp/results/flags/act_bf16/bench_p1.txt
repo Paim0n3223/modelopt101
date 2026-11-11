@@ -1,0 +1,4 @@
+vla: act_dtype bf16 is only supported by pi0, pi0.5 and evo1
+vla-bench: model_load failed
+
+# exit=1 peak_host_rss_MiB=214.0

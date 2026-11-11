@@ -1,0 +1,21 @@
+smolvla-q8_0.gguf: Q8_0: quantized 225/791 tensors, weights 1.13 GB -> 0.82 GB (73%)  [tao o buoc thu, 4.94 s]
+smolvla-q8_0-vis.gguf: Q8_0: quantized 297/791 tensors, weights 1.13 GB -> 0.74 GB (66%)
+smolvla-q5_1.gguf: Q5_1: quantized 225/791 tensors, weights 1.13 GB -> 0.72 GB (64%)
+smolvla-q5_1-vis.gguf: Q5_1: quantized 297/791 tensors, weights 1.13 GB -> 0.61 GB (54%)
+smolvla-q5_0.gguf: Q5_0: quantized 225/791 tensors, weights 1.13 GB -> 0.70 GB (62%)
+smolvla-q5_0-vis.gguf: Q5_0: quantized 297/791 tensors, weights 1.13 GB -> 0.59 GB (52%)
+smolvla-q4_1.gguf: Q4_1: quantized 225/791 tensors, weights 1.13 GB -> 0.68 GB (60%)
+smolvla-q4_1-vis.gguf: Q4_1: quantized 297/791 tensors, weights 1.13 GB -> 0.56 GB (50%)
+smolvla-q4_0.gguf: Q4_0: quantized 225/791 tensors, weights 1.13 GB -> 0.66 GB (58%)
+smolvla-q4_0-vis.gguf: Q4_0: quantized 297/791 tensors, weights 1.13 GB -> 0.54 GB (48%)
+smolvla-libero.gguf   1126360736 bytes  1.126 GB
+smolvla-q4_0-vis.gguf    535111328 bytes  0.535 GB
+smolvla-q4_0.gguf    657204896 bytes  0.657 GB
+smolvla-q4_1-vis.gguf    560817824 bytes  0.561 GB
+smolvla-q4_1.gguf    677602976 bytes  0.678 GB
+smolvla-q5_0-vis.gguf    586524320 bytes  0.587 GB
+smolvla-q5_0.gguf    698001056 bytes  0.698 GB
+smolvla-q5_1-vis.gguf    612230816 bytes  0.612 GB
+smolvla-q5_1.gguf    718399136 bytes  0.718 GB
+smolvla-q8_0-vis.gguf    740763296 bytes  0.741 GB
+smolvla-q8_0.gguf    820389536 bytes  0.820 GB

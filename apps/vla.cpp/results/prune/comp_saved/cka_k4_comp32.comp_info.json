@@ -1,0 +1,24 @@
+{
+  "config": "cka_k4",
+  "source": "/home/qdung/models/smolvla_libero_hf",
+  "fit_samples": 179,
+  "kind": "depth",
+  "drop": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    28,
+    29
+  ],
+  "alpha": 0.001,
+  "compensated": [
+    "lm:21-26@20",
+    "expert:21-26@20",
+    "lm:28-29@27",
+    "expert:28-29@27"
+  ],
+  "next": "make_pruned_gguf.sh with SRC=<this dir> and drop 21,22,23,24,25,26,28,29"
+}

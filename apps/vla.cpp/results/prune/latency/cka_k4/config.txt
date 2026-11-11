@@ -1,0 +1,1 @@
+VLA_GGUF=/home/qdung/models/smolvla-prune/cka_k4.gguf|

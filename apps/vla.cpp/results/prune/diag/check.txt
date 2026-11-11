@@ -1,0 +1,3 @@
+torch full vs recorded server (float images): arm_t0 8.131e-04 grip_t0 0.010
+full: vla.cpp vs torch (same pruning) arm_t0 3.148e-04 arm_all 2.300e-04 grip_t0 0.000   | torch pruned vs torch full arm_t0 0.000e+00
+cka_k4: vla.cpp vs torch (same pruning) arm_t0 2.162e-04 arm_all 2.310e-04 grip_t0 0.000   | torch pruned vs torch full arm_t0 5.888e-02

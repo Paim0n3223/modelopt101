@@ -1,0 +1,21 @@
+== 02:46:41 default  env=[]  flags=[]
+== 02:48:00 fa  env=[]  flags=[--flash-attn]
+== 02:49:17 mmdef  env=[]  flags=[--mm-prec default]
+== 02:50:35 fa_mmdef  env=[]  flags=[--flash-attn --mm-prec default]
+== 02:51:52 wbf16  env=[]  flags=[--weight-dtype bf16]
+== 02:53:11 wbf16_fa  env=[]  flags=[--weight-dtype bf16 --flash-attn]
+== 02:54:29 wf16  env=[]  flags=[--weight-dtype f16]
+== 02:55:48 wf16_fa  env=[]  flags=[--weight-dtype f16 --flash-attn]
+== 02:57:06 act_bf16  env=[]  flags=[--act-dtype bf16]
+   vla-bench failed for act_bf16
+   vla_predict_check failed for act_bf16
+== 02:58:14 steps8  env=[]  flags=[--num-steps 8]
+== 02:59:32 steps5  env=[]  flags=[--num-steps 5]
+== 03:00:49 steps3  env=[]  flags=[--num-steps 3]
+== 03:02:07 steps2  env=[]  flags=[--num-steps 2]
+== 03:03:24 steps1  env=[]  flags=[--num-steps 1]
+== 03:04:42 fused0  env=[VLA_FUSED_OPS=0]  flags=[]
+== 03:06:00 gemm_exact0  env=[VLA_GEMM_EXACT=0]  flags=[]
+== 03:07:17 attn_exact0  env=[VLA_ATTN_EXACT=0]  flags=[]
+== 03:08:35 graphs0  env=[GGML_CUDA_DISABLE_GRAPHS=1]  flags=[]
+== 03:09:53 done

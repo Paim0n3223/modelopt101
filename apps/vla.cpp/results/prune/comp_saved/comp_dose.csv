@@ -1,0 +1,4 @@
+kind,name,alpha,note,rel_comp,rel_nocomp,arm_p90,arm_all,grip_t0,seconds
+depth,cos_k2,0.001,lm:20-21@19 expert:20-21@19 lm:25-26@24 expert:25-26@24,0.087,0.243,1.801e-02,8.027e-03,0.010,79
+depth,cka_k4,0.001,lm:21-26@20 expert:21-26@20 lm:28-29@27 expert:28-29@27,0.168,0.447,3.809e-02,1.769e-02,0.010,82
+depth,cos_k4,0.001,lm:11-12@10 expert:11-12@10 lm:16-17@15 expert:16-17@15 lm:20-21@19 expert:20-21@19 lm:25-26@24 expert:25-26@24,0.142,0.364,3.146e-02,1.459e-02,0.030,80

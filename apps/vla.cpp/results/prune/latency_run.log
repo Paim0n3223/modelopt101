@@ -1,0 +1,7 @@
+== 03:59:29 bf16  env=[]  flags=[]
+== 04:00:50 drop_30_31  env=[VLA_GGUF=/home/qdung/models/smolvla-prune/drop_30_31.gguf]  flags=[]
+== 04:02:12 cka_k4  env=[VLA_GGUF=/home/qdung/models/smolvla-prune/cka_k4.gguf]  flags=[]
+== 04:03:31 wexp_act25  env=[VLA_GGUF=/home/qdung/models/smolvla-prune/wexp_act25.gguf]  flags=[]
+== 04:04:52 q8v_fa_mmdef_s5  env=[VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[--flash-attn --mm-prec default --num-steps 5]
+== 04:06:08 q8v_wexp25_fa_mmdef_s5  env=[VLA_GGUF=/home/qdung/models/smolvla-prune/wexp_act25-q8_0-vis.gguf]  flags=[--flash-attn --mm-prec default --num-steps 5]
+== 04:07:23 done

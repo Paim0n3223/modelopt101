@@ -1,0 +1,23 @@
+Loading weights from local directory
+100 samples from 10 task files
+full model: 84s; torch vs recorded server: arm_t0 8.13e-04 grip_t0 0.010; mean |arm action| at t0 1.317e-01
+cka_k1   drop [25 26] arm_t0 2.118e-02 (rel 0.161) p90 3.058e-02 grip_t0 0.020   80s
+cos_k1   drop [25 26] arm_t0 2.118e-02 (rel 0.161) p90 3.058e-02 grip_t0 0.020   0s
+last_k1  drop [30 31] arm_t0 2.824e-02 (rel 0.214) p90 4.240e-02 grip_t0 0.010   81s
+rand_k1  drop [17 18] arm_t0 2.089e-02 (rel 0.159) p90 3.234e-02 grip_t0 0.020   80s
+cka_k2   drop [25 26 28 29] arm_t0 4.215e-02 (rel 0.320) p90 6.436e-02 grip_t0 0.020   80s
+cos_k2   drop [20 21 25 26] arm_t0 3.197e-02 (rel 0.243) p90 5.988e-02 grip_t0 0.020   77s
+last_k2  drop [28 29 30 31] arm_t0 4.938e-02 (rel 0.375) p90 7.624e-02 grip_t0 0.020   83s
+rand_k2  drop [18 19 24 25] arm_t0 2.830e-02 (rel 0.215) p90 4.973e-02 grip_t0 0.000   80s
+cka_k3   drop [23 24 25 26 28 29] arm_t0 5.485e-02 (rel 0.416) p90 8.683e-02 grip_t0 0.050   82s
+cos_k3   drop [11 12 20 21 25 26] arm_t0 4.165e-02 (rel 0.316) p90 7.450e-02 grip_t0 0.040   80s
+last_k3  drop [26 27 28 29 30 31] arm_t0 6.660e-02 (rel 0.506) p90 1.007e-01 grip_t0 0.020   80s
+rand_k3  drop [19 20 21 22 27 28] arm_t0 4.833e-02 (rel 0.367) p90 8.773e-02 grip_t0 0.040  new draw 78s
+cka_k4   drop [21 22 23 24 25 26 28 29] arm_t0 5.888e-02 (rel 0.447) p90 9.342e-02 grip_t0 0.050   79s
+cos_k4   drop [11 12 16 17 20 21 25 26] arm_t0 4.797e-02 (rel 0.364) p90 9.015e-02 grip_t0 0.030   79s
+last_k4  drop [24 25 26 27 28 29 30 31] arm_t0 7.673e-02 (rel 0.582) p90 1.121e-01 grip_t0 0.070   81s
+rand_k4  drop [16 17 19 20 26 27 28 29] arm_t0 6.011e-02 (rel 0.456) p90 1.009e-01 grip_t0 0.020   80s
+torch full vs recorded server (float images): arm_t0 8.131e-04 grip_t0 0.010
+full: vla.cpp vs torch (same pruning) arm_t0 3.148e-04 arm_all 2.300e-04 grip_t0 0.000   | torch pruned vs torch full arm_t0 0.000e+00
+cka_k4: vla.cpp vs torch (same pruning) arm_t0 2.162e-04 arm_all 2.310e-04 grip_t0 0.000   | torch pruned vs torch full arm_t0 5.888e-02
+total 1284s, wrote results/prune/diag

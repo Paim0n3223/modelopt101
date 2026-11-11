@@ -1,0 +1,13 @@
+# name|drop spec|method   (feed to make_pruned_gguf.sh)
+cka_k1|25,26|cka
+cos_k1|25,26|cosine
+last_k1|30-31|last
+rand_k1|17,18|random(seed=0)
+cka_k2|25,26,28,29|cka
+cos_k2|20,21,25,26|cosine
+last_k2|28-31|last
+rand_k2|18,19,24,25|random(seed=0)
+cka_k4|21,22,23,24,25,26,28,29|cka
+cos_k4|11,12,16,17,20,21,25,26|cosine
+last_k4|24-31|last
+rand_k4|16,17,19,20,26,27,28,29|random(seed=0)

@@ -1,0 +1,9 @@
+# Fewer denoising steps on the recommended config (Q8_0 + vision, flash-attn, mm-prec default).
+# Used by run_replay.sh (offline deviation on the calibration set) and run_flags.sh (vla-bench latency).
+# SmolVLA was trained with 10 Euler steps; 5 steps keeps SR (§10). NOTES §6 measured 3/2/1 steps only on one
+# synthetic input (BF16): 3 steps already shifted the gripper switch row 7 -> 9.
+# name|ENV (VLA_GGUF=... picks the checkpoint)|flags
+q8v_fa_mmdef_s5|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 5
+q8v_fa_mmdef_s4|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 4
+q8v_fa_mmdef_s3|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 3
+q8v_fa_mmdef_s2|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 2

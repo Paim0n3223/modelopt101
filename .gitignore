@@ -1,1 +1,4 @@
 ﻿data/
+__pycache__/
+apps/vla.cpp/results/profile/nsys/*_cuda_gpu_trace.csv
+apps/vla.cpp/NOTES.md

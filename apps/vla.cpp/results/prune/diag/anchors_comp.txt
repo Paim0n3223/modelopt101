@@ -1,0 +1,5 @@
+reference results/prune/diag/server_full.npz: 100 samples, mean |arm action| at t0 1.318e-01
+name                       arm_t0    rel    arm_p90    arm_all grip_t0
+q8v_fa_mmdef_s5         8.805e-03  0.067  1.489e-02  5.513e-03   0.010
+q8v_cos_k2_comp_s5      1.516e-02  0.115  2.669e-02  1.006e-02   0.020
+q8v_cos_k4_comp_s5      2.107e-02  0.160  3.502e-02  1.573e-02   0.040

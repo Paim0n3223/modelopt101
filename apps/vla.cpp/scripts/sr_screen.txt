@@ -1,0 +1,9 @@
+# LIBERO SR screening (10 tasks x 4 episodes per config). Candidates from NOTES §6-7.
+# Ordered by priority: the run can be stopped with Ctrl+C and resumed later with the same command.
+# name|ENV (VLA_GGUF=... picks another checkpoint)|vla-server flags
+bf16||
+q8v_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default
+bf16_fa_mmdef_s5||--flash-attn --mm-prec default --num-steps 5
+q4v_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_0-vis.gguf|--flash-attn --mm-prec default
+bf16_fa_mmdef||--flash-attn --mm-prec default
+q8v_fa_mmdef_s5|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 5

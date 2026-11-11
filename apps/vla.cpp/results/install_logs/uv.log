@@ -1,0 +1,296 @@
+DEBUG Found workspace root: /home/qdung/vla.cpp
+DEBUG Adding root workspace member: /home/qdung/vla.cpp
+DEBUG Found workspace configuration at `/home/qdung/vla.cpp/pyproject.toml`
+DEBUG Searching for user configuration in: /home/qdung/.config/uv/uv.toml
+DEBUG uv 0.13.7 (x86_64-unknown-linux-gnu)
+DEBUG Checking for Python interpreter at path `/home/qdung/venvs/vla-tok/bin/python`
+Using Python 3.12.16 environment at: /home/qdung/venvs/vla-tok
+DEBUG At least one requirement is not satisfied: transformers>=5.4
+DEBUG Using request connect timeout of 10s and read timeout of 120s
+DEBUG Solving with installed Python version: 3.12.16
+DEBUG Solving with target Python version: >=3.12.16
+DEBUG Adding direct dependency: transformers>=5.4
+DEBUG Found fresh response for: https://pypi.org/simple/transformers/
+DEBUG Searching for a compatible version of transformers (>=5.4)
+DEBUG Selecting: transformers==5.22.1 [compatible] (transformers-5.22.1-py3-none-any.whl)
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/75/75/47ebe0e2f1b04a180000e3a49ebdf4669dbab0c63489bcecf7855c26e4f4/transformers-5.22.1-py3-none-any.whl.metadata
+DEBUG Adding transitive dependency for transformers==5.22.1: huggingface-hub>=1.31.0, <3.0
+DEBUG Adding transitive dependency for transformers==5.22.1: numpy>=1.17
+DEBUG Adding transitive dependency for transformers==5.22.1: packaging>=20.0
+DEBUG Adding transitive dependency for transformers==5.22.1: pyyaml>=5.1
+DEBUG Adding transitive dependency for transformers==5.22.1: regex>=2025.10.22
+DEBUG Adding transitive dependency for transformers==5.22.1: tokenizers>=0.23.1, <0.24.0
+DEBUG Adding transitive dependency for transformers==5.22.1: typer*
+DEBUG Adding transitive dependency for transformers==5.22.1: safetensors>=0.8.0
+DEBUG Adding transitive dependency for transformers==5.22.1: tqdm>=4.60
+DEBUG Found fresh response for: https://pypi.org/simple/huggingface-hub/
+DEBUG Searching for a compatible version of huggingface-hub (>=1.31.0, <3.0)
+DEBUG Selecting: huggingface-hub==2.4.0 [compatible] (huggingface_hub-2.4.0-py3-none-any.whl)
+DEBUG Found fresh response for: https://pypi.org/simple/packaging/
+DEBUG Found fresh response for: https://pypi.org/simple/pyyaml/
+DEBUG Found fresh response for: https://pypi.org/simple/typer/
+DEBUG Found fresh response for: https://pypi.org/simple/tokenizers/
+DEBUG Found fresh response for: https://pypi.org/simple/safetensors/
+DEBUG Found fresh response for: https://pypi.org/simple/numpy/
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/d4/55/ff47f1b082ecf5f43f4bc1e3b932d68eead171dabbbd1a92666c686301d7/huggingface_hub-2.4.0-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://pypi.org/simple/tqdm/
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/8b/9d/b3589d3877982d4f2329302ef98a8026e7f4443c765c46cfecc8858c6b4b/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/07/ea/2e31b67051e91a133189e9c000c222502ddc6969856416de0d095de4c0b0/typer-0.27.3-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/28/50/f203ff3a3ddfe19308efc83c5a3a29ed02bf786732ec35e68bf9162f3365/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/3a/40/6706b82693715581457c6d5423eaa7faae576bb0526c5738a57085eb4449/tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/43/a3/c799c62e19c337e6d3770b08e475887fb30ce8477d3c09efca6b2f0228a6/numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+DEBUG Adding transitive dependency for huggingface-hub==2.4.0: click>=8.4.2, <9.0.0
+DEBUG Adding transitive dependency for huggingface-hub==2.4.0: filelock>=3.10.0
+DEBUG Adding transitive dependency for huggingface-hub==2.4.0: fsspec>=2023.5.0
+DEBUG Adding transitive dependency for huggingface-hub==2.4.0: hf-xet{platform_machine == 'AMD64' or platform_machine == 'ARM64' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'}>=1.6.0, <2.0.0
+DEBUG Adding transitive dependency for huggingface-hub==2.4.0: httpx2>=2.0.0, <3
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl.metadata
+DEBUG Adding transitive dependency for huggingface-hub==2.4.0: packaging>=20.9
+DEBUG Adding transitive dependency for huggingface-hub==2.4.0: pyyaml>=5.1
+DEBUG Adding transitive dependency for huggingface-hub==2.4.0: tqdm>=4.42.1
+DEBUG Adding transitive dependency for huggingface-hub==2.4.0: typing-extensions>=4.1.0
+DEBUG Searching for a compatible version of numpy (>=1.17)
+DEBUG Selecting: numpy==2.5.4 [compatible] (numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl)
+DEBUG Searching for a compatible version of packaging (>=20.9)
+DEBUG Selecting: packaging==26.3 [compatible] (packaging-26.3-py3-none-any.whl)
+DEBUG Searching for a compatible version of pyyaml (>=5.1)
+DEBUG Selecting: pyyaml==6.0.3 [compatible] (pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl)
+DEBUG Found fresh response for: https://pypi.org/simple/click/
+DEBUG Found fresh response for: https://pypi.org/simple/fsspec/
+DEBUG Found fresh response for: https://pypi.org/simple/filelock/
+DEBUG Found fresh response for: https://pypi.org/simple/httpx2/
+DEBUG Found fresh response for: https://pypi.org/simple/typing-extensions/
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/6c/c0/a98505f18594f1bce828bb159cec0fcf9860562f1a2c85913409fc8f3d9e/fsspec-2026.9.0-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/00/05/76184fe08339723d643ab47887a8e4de8f2921ca4e008617ab7490af7857/filelock-4.2.9-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/7b/3d/2e4bc4fd1ef9770871669adb348d612a6e4786b303a23f9935b81c48dd60/httpx2-2.16.0-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://pypi.org/simple/hf-xet/
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/f8/1e/1e8ecc05ef034e9a95c18ed32d2ec07905a7cd2ca611a9d88e25ee1f4850/hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata
+DEBUG Found fresh response for: https://pypi.org/simple/regex/
+DEBUG Searching for a compatible version of regex (>=2025.10.22)
+DEBUG Selecting: regex==2026.9.29 [compatible] (regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl)
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/26/83/d2fbd2e4e3afb1167daa825187d196f313cbaa1a4768f311fb041bb0e3d2/regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata
+DEBUG Searching for a compatible version of tokenizers (>=0.23.1, <0.24.0)
+DEBUG Selecting: tokenizers==0.23.3 [compatible] (tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl)
+DEBUG Adding transitive dependency for tokenizers==0.23.3: huggingface-hub>=0.16.4, <3.0
+DEBUG Searching for a compatible version of typer (*)
+DEBUG Selecting: typer==0.27.3 [compatible] (typer-0.27.3-py3-none-any.whl)
+DEBUG Adding transitive dependency for typer==0.27.3: shellingham>=1.3.0
+DEBUG Adding transitive dependency for typer==0.27.3: rich>=13.8.0
+DEBUG Adding transitive dependency for typer==0.27.3: annotated-doc>=0.0.2
+DEBUG Searching for a compatible version of safetensors (>=0.8.0)
+DEBUG Selecting: safetensors==0.8.0 [compatible] (safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl)
+DEBUG Searching for a compatible version of tqdm (>=4.60)
+DEBUG Selecting: tqdm==4.70.1 [compatible] (tqdm-4.70.1-py3-none-any.whl)
+DEBUG Searching for a compatible version of click (>=8.4.2, <9.0.0)
+DEBUG Selecting: click==8.5.0 [compatible] (click-8.5.0-py3-none-any.whl)
+DEBUG Searching for a compatible version of filelock (>=3.10.0)
+DEBUG Selecting: filelock==4.2.9 [compatible] (filelock-4.2.9-py3-none-any.whl)
+DEBUG Searching for a compatible version of fsspec (>=2023.5.0)
+DEBUG Selecting: fsspec==2026.9.0 [compatible] (fsspec-2026.9.0-py3-none-any.whl)
+DEBUG Searching for a compatible version of hf-xet{platform_machine == 'AMD64' or platform_machine == 'ARM64' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'} (>=1.6.0, <2.0.0)
+DEBUG Selecting: hf-xet==1.8.0 [compatible] (hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl)
+DEBUG Found fresh response for: https://pypi.org/simple/shellingham/
+DEBUG Adding transitive dependency for hf-xet==1.8.0: hf-xet==1.8.0
+DEBUG Adding transitive dependency for hf-xet==1.8.0: hf-xet{platform_machine == 'AMD64' or platform_machine == 'ARM64' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'}==1.8.0
+DEBUG Searching for a compatible version of hf-xet (==1.8.0)
+DEBUG Selecting: hf-xet==1.8.0 [compatible] (hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl)
+DEBUG Searching for a compatible version of hf-xet{platform_machine == 'AMD64' or platform_machine == 'ARM64' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'} (==1.8.0)
+DEBUG Selecting: hf-xet==1.8.0 [compatible] (hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl)
+DEBUG Searching for a compatible version of httpx2 (>=2.0.0, <3)
+DEBUG Selecting: httpx2==2.16.0 [compatible] (httpx2-2.16.0-py3-none-any.whl)
+DEBUG Found fresh response for: https://pypi.org/simple/annotated-doc/
+DEBUG Adding transitive dependency for httpx2==2.16.0: anyio{sys_platform != 'emscripten'}>=4.10
+DEBUG Adding transitive dependency for httpx2==2.16.0: httpcore2{sys_platform != 'emscripten'}>=2.16.0, <2.16.0+
+DEBUG Adding transitive dependency for httpx2==2.16.0: idna>=3.18
+DEBUG Adding transitive dependency for httpx2==2.16.0: truststore{sys_platform != 'emscripten'}>=0.10
+DEBUG Adding transitive dependency for httpx2==2.16.0: typing-extensions{python_full_version < '3.13'}>=4.5.0
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/e0/f9/0595336914c5619e5f28a1fb793285925a8cd4b432c9da0a987836c7f822/shellingham-1.5.4-py2.py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/3e/30/e900b21425a860e195f32e37657aa1f7c7f2b1bfb26f03ca209b90933c06/annotated_doc-0.0.5-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://pypi.org/simple/rich/
+DEBUG Found fresh response for: https://pypi.org/simple/httpcore2/
+DEBUG Found fresh response for: https://pypi.org/simple/idna/
+DEBUG Found fresh response for: https://pypi.org/simple/anyio/
+DEBUG Found fresh response for: https://pypi.org/simple/truststore/
+DEBUG Searching for a compatible version of httpcore2{sys_platform != 'emscripten'} (>=2.16.0, <2.16.0+)
+DEBUG Selecting: httpcore2==2.16.0 [compatible] (httpcore2-2.16.0-py3-none-any.whl)
+DEBUG Adding transitive dependency for httpcore2==2.16.0: httpcore2==2.16.0
+DEBUG Adding transitive dependency for httpcore2==2.16.0: httpcore2{sys_platform != 'emscripten'}==2.16.0
+DEBUG Searching for a compatible version of httpcore2 (==2.16.0)
+DEBUG Selecting: httpcore2==2.16.0 [compatible] (httpcore2-2.16.0-py3-none-any.whl)
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/a9/16/7757fb84c819accc7d7e9af5291b261e4abb8627ee040f99e7d35ef2457a/anyio-4.16.0-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/af/c2/ce417c397afa5181f0e3c6ff01a4d01639414e1adef08730d97571297151/httpcore2-2.16.0-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/51/e9/3a7820be2bb0fe53b6bc9c3be26d3d1158004e4c3ab953aa6840b955b1e9/truststore-0.10.5-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/82/3b/64d4899d73f91ba49a8c18a8ff3f0ea8f1c1d75481760df8c68ef5235bf5/rich-15.0.0-py3-none-any.whl.metadata
+DEBUG Adding transitive dependency for httpcore2==2.16.0: h11>=0.16
+DEBUG Adding transitive dependency for httpcore2==2.16.0: truststore>=0.10
+DEBUG Searching for a compatible version of httpcore2{sys_platform != 'emscripten'} (==2.16.0)
+DEBUG Selecting: httpcore2==2.16.0 [compatible] (httpcore2-2.16.0-py3-none-any.whl)
+DEBUG Adding transitive dependency for httpcore2==2.16.0: h11>=0.16
+DEBUG Adding transitive dependency for httpcore2==2.16.0: truststore>=0.10
+DEBUG Searching for a compatible version of typing-extensions (>=4.5.0)
+DEBUG Selecting: typing-extensions==4.16.0 [compatible] (typing_extensions-4.16.0-py3-none-any.whl)
+DEBUG Searching for a compatible version of typing-extensions{python_full_version < '3.13'} (>=4.5.0)
+DEBUG Selecting: typing-extensions==4.16.0 [compatible] (typing_extensions-4.16.0-py3-none-any.whl)
+DEBUG Adding transitive dependency for typing-extensions==4.16.0: typing-extensions==4.16.0
+DEBUG Adding transitive dependency for typing-extensions==4.16.0: typing-extensions{python_full_version < '3.13'}==4.16.0
+DEBUG Searching for a compatible version of typing-extensions{python_full_version < '3.13'} (==4.16.0)
+DEBUG Selecting: typing-extensions==4.16.0 [compatible] (typing_extensions-4.16.0-py3-none-any.whl)
+DEBUG Searching for a compatible version of shellingham (>=1.3.0)
+DEBUG Selecting: shellingham==1.5.4 [compatible] (shellingham-1.5.4-py2.py3-none-any.whl)
+DEBUG Searching for a compatible version of rich (>=13.8.0)
+DEBUG Selecting: rich==15.0.0 [compatible] (rich-15.0.0-py3-none-any.whl)
+DEBUG Adding transitive dependency for rich==15.0.0: markdown-it-py>=2.2.0
+DEBUG Adding transitive dependency for rich==15.0.0: pygments>=2.13.0, <3.0.0
+DEBUG Searching for a compatible version of annotated-doc (>=0.0.2)
+DEBUG Selecting: annotated-doc==0.0.5 [compatible] (annotated_doc-0.0.5-py3-none-any.whl)
+DEBUG Searching for a compatible version of anyio{sys_platform != 'emscripten'} (>=4.10)
+DEBUG Found fresh response for: https://pypi.org/simple/h11/
+DEBUG Selecting: anyio==4.16.0 [compatible] (anyio-4.16.0-py3-none-any.whl)
+DEBUG Adding transitive dependency for anyio==4.16.0: anyio==4.16.0
+DEBUG Adding transitive dependency for anyio==4.16.0: anyio{sys_platform != 'emscripten'}==4.16.0
+DEBUG Searching for a compatible version of anyio (==4.16.0)
+DEBUG Selecting: anyio==4.16.0 [compatible] (anyio-4.16.0-py3-none-any.whl)
+DEBUG Adding transitive dependency for anyio==4.16.0: idna>=2.8
+DEBUG Adding transitive dependency for anyio==4.16.0: typing-extensions{python_full_version < '3.15'}>=4.16.0
+DEBUG Searching for a compatible version of typing-extensions{python_full_version < '3.15'} (>=4.16.0)
+DEBUG Selecting: typing-extensions==4.16.0 [compatible] (typing_extensions-4.16.0-py3-none-any.whl)
+DEBUG Adding transitive dependency for typing-extensions==4.16.0: typing-extensions==4.16.0
+DEBUG Adding transitive dependency for typing-extensions==4.16.0: typing-extensions{python_full_version < '3.15'}==4.16.0
+DEBUG Searching for a compatible version of typing-extensions{python_full_version < '3.15'} (==4.16.0)
+DEBUG Selecting: typing-extensions==4.16.0 [compatible] (typing_extensions-4.16.0-py3-none-any.whl)
+DEBUG Searching for a compatible version of anyio{sys_platform != 'emscripten'} (==4.16.0)
+DEBUG Selecting: anyio==4.16.0 [compatible] (anyio-4.16.0-py3-none-any.whl)
+DEBUG Adding transitive dependency for anyio==4.16.0: idna>=2.8
+DEBUG Adding transitive dependency for anyio==4.16.0: typing-extensions{python_full_version < '3.15'}>=4.16.0
+DEBUG Searching for a compatible version of idna (>=3.18)
+DEBUG Selecting: idna==3.20 [compatible] (idna-3.20-py3-none-any.whl)
+DEBUG Searching for a compatible version of truststore{sys_platform != 'emscripten'} (>=0.10)
+DEBUG Selecting: truststore==0.10.5 [compatible] (truststore-0.10.5-py3-none-any.whl)
+DEBUG Adding transitive dependency for truststore==0.10.5: truststore==0.10.5
+DEBUG Adding transitive dependency for truststore==0.10.5: truststore{sys_platform != 'emscripten'}==0.10.5
+DEBUG Searching for a compatible version of truststore (==0.10.5)
+DEBUG Selecting: truststore==0.10.5 [compatible] (truststore-0.10.5-py3-none-any.whl)
+DEBUG Searching for a compatible version of truststore{sys_platform != 'emscripten'} (==0.10.5)
+DEBUG Selecting: truststore==0.10.5 [compatible] (truststore-0.10.5-py3-none-any.whl)
+DEBUG Searching for a compatible version of h11 (>=0.16)
+DEBUG Selecting: h11==0.16.0 [compatible] (h11-0.16.0-py3-none-any.whl)
+DEBUG Found fresh response for: https://pypi.org/simple/markdown-it-py/
+DEBUG Found fresh response for: https://pypi.org/simple/pygments/
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl.metadata
+DEBUG Searching for a compatible version of markdown-it-py (>=2.2.0)
+DEBUG Selecting: markdown-it-py==4.2.0 [compatible] (markdown_it_py-4.2.0-py3-none-any.whl)
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/b3/81/4da04ced5a082363ecfa159c010d200ecbd959ae410c10c0264a38cac0f5/markdown_it_py-4.2.0-py3-none-any.whl.metadata
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl.metadata
+DEBUG Adding transitive dependency for markdown-it-py==4.2.0: mdurl>=0.1, <1.dev0
+DEBUG Searching for a compatible version of pygments (>=2.13.0, <3.0.0)
+DEBUG Selecting: pygments==2.21.0 [compatible] (pygments-2.21.0-py3-none-any.whl)
+DEBUG Found fresh response for: https://pypi.org/simple/mdurl/
+DEBUG Searching for a compatible version of mdurl (>=0.1, <1.dev0)
+DEBUG Selecting: mdurl==0.1.2 [compatible] (mdurl-0.1.2-py3-none-any.whl)
+DEBUG Found fresh response for: https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl.metadata
+DEBUG Tried 27 versions: annotated-doc 1, anyio 1, click 1, filelock 1, fsspec 1, h11 1, hf-xet 1, httpcore2 1, httpx2 1, huggingface-hub 1, idna 1, markdown-it-py 1, mdurl 1, numpy 1, packaging 1, pygments 1, pyyaml 1, regex 1, rich 1, safetensors 1, shellingham 1, tokenizers 1, tqdm 1, transformers 1, truststore 1, typer 1, typing-extensions 1
+DEBUG marker environment resolution took 0.011s
+Resolved 27 packages in 12ms
+DEBUG Registry requirement already cached: hf-xet==1.8.0
+DEBUG Registry requirement already cached: fsspec==2026.9.0
+DEBUG Registry requirement already cached: typer==0.27.3
+DEBUG Registry requirement already cached: regex==2026.9.29
+DEBUG Registry requirement already cached: filelock==4.2.9
+DEBUG Registry requirement already cached: typing-extensions==4.16.0
+DEBUG Registry requirement already cached: packaging==26.3
+DEBUG Registry requirement already cached: h11==0.16.0
+DEBUG Registry requirement already cached: tqdm==4.70.1
+DEBUG Registry requirement already cached: markdown-it-py==4.2.0
+DEBUG Registry requirement already cached: idna==3.20
+DEBUG Registry requirement already cached: click==8.5.0
+DEBUG Identified uncached distribution: numpy==2.5.4
+DEBUG Registry requirement already cached: huggingface-hub==2.4.0
+DEBUG Registry requirement already cached: truststore==0.10.5
+DEBUG Registry requirement already cached: rich==15.0.0
+DEBUG Registry requirement already cached: safetensors==0.8.0
+DEBUG Registry requirement already cached: mdurl==0.1.2
+DEBUG Registry requirement already cached: httpx2==2.16.0
+DEBUG Registry requirement already cached: pygments==2.21.0
+DEBUG Registry requirement already cached: httpcore2==2.16.0
+DEBUG Registry requirement already cached: shellingham==1.5.4
+DEBUG Identified uncached distribution: transformers==5.22.1
+DEBUG Registry requirement already cached: anyio==4.16.0
+DEBUG Registry requirement already cached: annotated-doc==0.0.5
+DEBUG Registry requirement already cached: tokenizers==0.23.3
+DEBUG Registry requirement already cached: pyyaml==6.0.3
+DEBUG No cache entry for: https://files.pythonhosted.org/packages/43/a3/c799c62e19c337e6d3770b08e475887fb30ce8477d3c09efca6b2f0228a6/numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+DEBUG Sending fresh GET request for: https://files.pythonhosted.org/packages/43/a3/c799c62e19c337e6d3770b08e475887fb30ce8477d3c09efca6b2f0228a6/numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+DEBUG No cache entry for: https://files.pythonhosted.org/packages/75/75/47ebe0e2f1b04a180000e3a49ebdf4669dbab0c63489bcecf7855c26e4f4/transformers-5.22.1-py3-none-any.whl
+DEBUG Sending fresh GET request for: https://files.pythonhosted.org/packages/75/75/47ebe0e2f1b04a180000e3a49ebdf4669dbab0c63489bcecf7855c26e4f4/transformers-5.22.1-py3-none-any.whl
+Downloading numpy (16.0MiB)
+Downloading transformers (12.4MiB)
+DEBUG Transient failure while handling response from `https://files.pythonhosted.org/packages/75/75/47ebe0e2f1b04a180000e3a49ebdf4669dbab0c63489bcecf7855c26e4f4/transformers-5.22.1-py3-none-any.whl`; retrying after 1.5s...
+DEBUG Transient failure while handling response from `https://files.pythonhosted.org/packages/43/a3/c799c62e19c337e6d3770b08e475887fb30ce8477d3c09efca6b2f0228a6/numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl`; retrying after 1.0s...
+DEBUG No cache entry for: https://files.pythonhosted.org/packages/43/a3/c799c62e19c337e6d3770b08e475887fb30ce8477d3c09efca6b2f0228a6/numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+DEBUG Sending fresh GET request for: https://files.pythonhosted.org/packages/43/a3/c799c62e19c337e6d3770b08e475887fb30ce8477d3c09efca6b2f0228a6/numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+Downloading numpy (16.0MiB)
+DEBUG No cache entry for: https://files.pythonhosted.org/packages/75/75/47ebe0e2f1b04a180000e3a49ebdf4669dbab0c63489bcecf7855c26e4f4/transformers-5.22.1-py3-none-any.whl
+DEBUG Sending fresh GET request for: https://files.pythonhosted.org/packages/75/75/47ebe0e2f1b04a180000e3a49ebdf4669dbab0c63489bcecf7855c26e4f4/transformers-5.22.1-py3-none-any.whl
+Downloading transformers (12.4MiB)
+ Downloaded transformers
+ Downloaded numpy
+Prepared 2 packages in 4m 40s
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/dAfugTDzMHT1YS-Q/transformers-5.22.1.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/transformers-5.22.1.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/27c0VTDp96Vz1EJd/numpy-2.5.4.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/numpy-2.5.4.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/DVyYIQzj0-HBQy03/markdown_it/__init__.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/markdown_it/__init__.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/tpJyXGnuSFIbjr7P/packaging-26.3.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/packaging-26.3.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/h-50SQ7jb2IL73lV/tqdm-4.70.1.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/tqdm-4.70.1.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/YTwhb6DkKBGqkwpl/huggingface_hub/_sandbox.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/huggingface_hub/_sandbox.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/VWB0ytzGOEJuzqp4/typing_extensions.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/typing_extensions.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/C9dUg27gmTzHmaXG/click-8.5.0.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/click-8.5.0.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/x2bPJOB90rt1xqtB/fsspec-2026.9.0.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/fsspec-2026.9.0.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/jGpNJ3yt_pNz80GL/pygments/style.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/pygments/style.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/hAHdNmNzHbXxdI2u/regex-2026.9.29.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/regex-2026.9.29.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/kCcc8SEq2xfz2qUN/anyio-4.16.0.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/anyio-4.16.0.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/4T0cvGd8ybxhrxG-/rich/filesize.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/rich/filesize.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/2DpTa41VuXJiK1q4/typer/_completion_shared.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/typer/_completion_shared.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/r7ORJGQ5GHolN88B/h11/_version.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/h11/_version.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/dEtQHCHVXv7k9zur/idna-3.20.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/idna-3.20.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/wM1fDnew96i7kIGZ/filelock-4.2.9.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/filelock-4.2.9.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/bCkOVCaG77KtzxEL/annotated_doc/__init__.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/annotated_doc/__init__.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/7wUpz_ELupMxCq4M/tokenizers-0.23.3.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/tokenizers-0.23.3.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/99uN3D2SXZnpngP8/shellingham/__init__.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/shellingham/__init__.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/XHWg-DRlqh40wq7j/pyyaml-6.0.3.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/pyyaml-6.0.3.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/yL0JsQbraKK1YgrC/hf_xet-1.8.0.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/hf_xet-1.8.0.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/fyOCPuSt5Acd4fBR/mdurl/_url.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/mdurl/_url.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/6I5MtSX6FdmTzF2X/truststore-0.10.5.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/truststore-0.10.5.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/XpG_d-iRozxa10cF/httpcore2-2.16.0.dist-info/RECORD` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/httpcore2-2.16.0.dist-info/RECORD`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/WTexB-Go0zYGhchb/safetensors/__init__.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/safetensors/__init__.py`: Operation not supported (os error 95), falling back
+DEBUG Failed to reflink `/home/qdung/.cache/uv/archive-v0/BtnT_-EIAt54-lAl/httpx2/_utils.py` to `/home/qdung/venvs/vla-tok/lib/python3.12/site-packages/httpx2/_utils.py`: Operation not supported (os error 95), falling back
+Installed 27 packages in 276ms
+ + annotated-doc==0.0.5
+ + anyio==4.16.0
+ + click==8.5.0
+ + filelock==4.2.9
+ + fsspec==2026.9.0
+ + h11==0.16.0
+ + hf-xet==1.8.0
+ + httpcore2==2.16.0
+ + httpx2==2.16.0
+ + huggingface-hub==2.4.0
+ + idna==3.20
+ + markdown-it-py==4.2.0
+ + mdurl==0.1.2
+ + numpy==2.5.4
+ + packaging==26.3
+ + pygments==2.21.0
+ + pyyaml==6.0.3
+ + regex==2026.9.29
+ + rich==15.0.0
+ + safetensors==0.8.0
+ + shellingham==1.5.4
+ + tokenizers==0.23.3
+ + tqdm==4.70.1
+ + transformers==5.22.1
+ + truststore==0.10.5
+ + typer==0.27.3
+ + typing-extensions==4.16.0

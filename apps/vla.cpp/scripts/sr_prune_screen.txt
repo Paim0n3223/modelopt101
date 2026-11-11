@@ -1,0 +1,6 @@
+# Pruning screen, round 1: remove 8 of 32 layer indices (LM i + expert i), BF16, default flags.
+# Same latency budget, only the choice of layers differs. Layer lists from results/prune/cka/drop_lists.txt.
+# Reference: bf16 (unpruned, default flags) in results/libero/screen/ = 35/40.
+cka_k4|VLA_GGUF=/home/qdung/models/smolvla-prune/cka_k4.gguf|
+last_k4|VLA_GGUF=/home/qdung/models/smolvla-prune/last_k4.gguf|
+rand_k4|VLA_GGUF=/home/qdung/models/smolvla-prune/rand_k4.gguf|

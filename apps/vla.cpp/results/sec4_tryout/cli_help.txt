@@ -1,0 +1,23 @@
+usage: ./build/vla-cli [--mmproj m.gguf] (--ckpt c.gguf | -hf user/repo) --image img.jpg [--image ...]
+          (--text "..." | --tokens id,id,...) [--state f,f,...] [--pretty]
+          [--config c.json] [precision flags]
+  --mmproj   ignored; every arch bundles its vision tower in the ckpt GGUF
+  --ckpt     model checkpoint GGUF
+  -hf        HuggingFace repo, user/repo[:file.gguf|:tag], cached under $VLA_CACHE
+  --image    image file, repeat for multi-view (decoded via stb_image)
+  --text     instruction; tokenized in-process when the GGUF carries its
+             tokenizer, else by scripts/tokenize_prompt.py (needs transformers)
+  --tokens   language token ids, comma-separated, if you tokenized already
+             (ACT reads no instruction: pass neither --text nor --tokens)
+  --state    proprioception floats, comma-separated (default zeros); pi05
+             --text needs it, since the state is part of the prompt
+  --pretty   print one action row (max_action_dim values) per line
+  --config   policy config.json; its "runtime" block sets the flags below,
+             and flags given here win
+  --weight-dtype f32|bf16|f16  resident dtype for GEMM weights
+  --act-dtype f32|bf16      activation dtype; bf16 needs bf16 weights: pi0 and
+                            pi0.5 on CUDA or SYCL, evo1 on CUDA
+  --flash-attn [0|1]        flash attention; faster, changes numerics
+  --mm-prec default|f32     matmul accumulation precision
+  --num-steps N             flow-matching solver steps, 1-1000 (default: the
+                            checkpoint's; also VLA_NUM_STEPS)

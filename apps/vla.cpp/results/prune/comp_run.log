@@ -1,0 +1,29 @@
+Loading weights from local directory
+16 depth configs, 32 runs to compensate, 45 Gram matrices, width ratios [0.25, 0.5], alphas [0.001]
+100 evaluation samples, 179 fitting samples
+fitting pass 40/179, 46s
+fitting pass 80/179, 86s
+fitting pass 120/179, 126s
+fitting pass 160/179, 167s
+statistics done (186s): rows lm 25233, expert 89500
+full model: mean |arm action| at t0 1.317e-01
+depth cka_k1       alpha 0.001  rel 0.052 (no comp 0.161) p90 1.203e-02 grip_t0 0.010 lm:25-26@24 expert:25-26@24 79s
+depth cos_k1       alpha 0.001  rel 0.052 (no comp 0.161) p90 1.203e-02 grip_t0 0.010 lm:25-26@24 expert:25-26@24 80s
+depth last_k1      alpha 0.001  rel 0.062 (no comp 0.214) p90 1.350e-02 grip_t0 0.020 expert:30-31@29 77s
+depth rand_k1      alpha 0.001  rel 0.064 (no comp 0.159) p90 1.553e-02 grip_t0 0.030 lm:17-18@16 expert:17-18@16 80s
+depth cka_k2       alpha 0.001  rel 0.098 (no comp 0.320) p90 2.169e-02 grip_t0 0.010 lm:25-26@24 expert:25-26@24 lm:28-29@27 expert:28-29@27 83s
+depth cos_k2       alpha 0.001  rel 0.087 (no comp 0.243) p90 1.801e-02 grip_t0 0.010 lm:20-21@19 expert:20-21@19 lm:25-26@24 expert:25-26@24 80s
+depth last_k2      alpha 0.001  rel 0.114 (no comp 0.375) p90 2.335e-02 grip_t0 0.010 expert:28-31@27 82s
+depth rand_k2      alpha 0.001  rel 0.089 (no comp 0.215) p90 2.467e-02 grip_t0 0.020 lm:18-19@17 expert:18-19@17 lm:24-25@23 expert:24-25@23 79s
+depth cka_k3       alpha 0.001  rel 0.130 (no comp 0.416) p90 2.920e-02 grip_t0 0.010 lm:23-26@22 expert:23-26@22 lm:28-29@27 expert:28-29@27 79s
+depth cos_k3       alpha 0.001  rel 0.115 (no comp 0.316) p90 2.862e-02 grip_t0 0.030 lm:11-12@10 expert:11-12@10 lm:20-21@19 expert:20-21@19 lm:25-26@24 expert:25-26@24 80s
+depth last_k3      alpha 0.001  rel 0.150 (no comp 0.506) p90 3.090e-02 grip_t0 0.000 expert:26-31@25 79s
+depth rand_k3      alpha 0.001  rel 0.147 (no comp 0.367) p90 3.336e-02 grip_t0 0.020 lm:19-22@18 expert:19-22@18 lm:27-28@26 expert:27-28@26 80s
+depth cka_k4       alpha 0.001  rel 0.168 (no comp 0.447) p90 3.809e-02 grip_t0 0.010 lm:21-26@20 expert:21-26@20 lm:28-29@27 expert:28-29@27 82s
+depth cos_k4       alpha 0.001  rel 0.142 (no comp 0.364) p90 3.146e-02 grip_t0 0.030 lm:11-12@10 expert:11-12@10 lm:16-17@15 expert:16-17@15 lm:20-21@19 expert:20-21@19 lm:25-26@24 expert:25-26@24 83s
+depth last_k4      alpha 0.001  rel 0.185 (no comp 0.582) p90 3.886e-02 grip_t0 0.010 expert:24-31@23 81s
+depth rand_k4      alpha 0.001  rel 0.167 (no comp 0.456) p90 4.158e-02 grip_t0 0.030 lm:16-17@15 expert:16-17@15 lm:19-20@18 expert:19-20@18 lm:26-29@25 expert:26-29@25 82s
+width wexp_act0.25 alpha 0.001  rel 0.033 (no comp 0.077) p90 7.052e-03 grip_t0 0.020  80s
+width wexp_act0.5  alpha 0.001  rel 0.067 (no comp 0.187) p90 1.369e-02 grip_t0 0.020  78s
+restore check: max |full after all configs - full before| = 0.00e+00
+total 1785s, wrote results/prune/comp

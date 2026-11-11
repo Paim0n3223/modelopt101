@@ -1,0 +1,7 @@
+Arch: smolvla
+Task: libero_object/task_0
+n_action_steps: 1
+Success rate: 90.00%  (18/20)
+Skipped (terminated mid-step): 0/20
+Average inference time per step: 121.86 ms
+Wall time (s): 785

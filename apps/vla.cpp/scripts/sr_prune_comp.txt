@@ -1,0 +1,7 @@
+# Pruning screen, round 2: depth pruning WITH least-squares weight compensation (compensate_diag.py), BF16, default flags.
+# Same 10 tasks x 4 episodes as round 1 (sr_prune_screen.txt). Offline rel (100 samples): cka_k4 0.168 (no comp 0.447,
+# SR 2/40), cos_k4 0.142 (no comp 0.364), cos_k2 0.087 (no comp 0.243). Reference bf16 = 35/40 (results/libero/screen/).
+# Pausable: Ctrl+C, then rerun the same command; finished tasks are skipped.
+cka_k4_comp|VLA_GGUF=/home/qdung/models/smolvla-prune/cka_k4_comp.gguf|
+cos_k4_comp|VLA_GGUF=/home/qdung/models/smolvla-prune/cos_k4_comp.gguf|
+cos_k2_comp|VLA_GGUF=/home/qdung/models/smolvla-prune/cos_k2_comp.gguf|

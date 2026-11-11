@@ -1,0 +1,6 @@
+# Does the Q8_0-vision gain without flash-attn depend on vla.cpp's fused CUDA ops?
+# (flash-attn off, --mm-prec f32 default; compare with results/quant/factorial bf16 / q8v)
+bf16_fused0|VLA_FUSED_OPS=0|
+q8v_fused0|VLA_FUSED_OPS=0 VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|
+bf16_fa_fused0|VLA_FUSED_OPS=0|--flash-attn
+q8v_fa_fused0|VLA_FUSED_OPS=0 VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn

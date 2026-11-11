@@ -1,0 +1,9 @@
+== 04:18:05 bf16  env=[]  flags=[]
+== 04:19:08 bf16_fa  env=[]  flags=[--flash-attn]
+== 04:20:11 bf16_mmdef  env=[]  flags=[--mm-prec default]
+== 04:21:16 bf16_fa_mmdef  env=[]  flags=[--flash-attn --mm-prec default]
+== 04:22:19 q8v  env=[VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[]
+== 04:23:19 q8v_fa  env=[VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[--flash-attn]
+== 04:24:18 q8v_mmdef  env=[VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[--mm-prec default]
+== 04:25:17 q8v_fa_mmdef  env=[VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[--flash-attn --mm-prec default]
+== 04:26:16 done

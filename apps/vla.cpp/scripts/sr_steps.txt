@@ -1,0 +1,5 @@
+# SR screen (10 tasks x 4 episodes) for fewer denoising steps on the recommended config.
+# Offline rel (100 calibration samples): s5 0.067, s4 0.096 (vla-bench 98.5 -> 93.2 ms). Reference: q8v_fa_mmdef_s5
+# screened 37/40 (results/libero/screen/), official 172/200 (results/libero/official/).
+# Pausable: Ctrl+C, then rerun the same command; finished tasks are skipped.
+q8v_fa_mmdef_s4|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 4

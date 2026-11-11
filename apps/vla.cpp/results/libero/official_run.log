@@ -1,0 +1,64 @@
+== 04:04:19 bf16  gguf=smolvla-libero.gguf  flags=[]  tasks=[0 1 2 3 4 5 6 7 8 9]  episodes=20
+   04:25:18 task 0: Success rate: 80.00%  (16/20)  (1253s)
+   04:42:16 task 1: Success rate: 85.00%  (17/20)  (1018s)
+   04:59:07 task 2: Success rate: 85.00%  (17/20)  (1011s)
+   05:15:48 task 3: Success rate: 85.00%  (17/20)  (1001s)
+   05:32:56 task 4: Success rate: 90.00%  (18/20)  (1028s)
+   05:56:59 task 5: Success rate: 65.00%  (13/20)  (1443s)
+   06:12:36 task 6: Success rate: 100.00%  (20/20)  (937s)
+   06:25:48 task 7: Success rate: 100.00%  (20/20)  (792s)
+   06:41:28 task 8: Success rate: 100.00%  (20/20)  (940s)
+   06:57:48 task 9: Success rate: 85.00%  (17/20)  (980s)
+== 06:58:19 q8v_fa_mmdef_s5  gguf=smolvla-q8_0-vis.gguf  flags=[--flash-attn --mm-prec default --num-steps 5]  tasks=[0 1 2 3 4 5 6 7 8 9]  episodes=20
+   07:11:29 task 0: Success rate: 90.00%  (18/20)  (785s)
+   07:23:35 task 1: Success rate: 90.00%  (18/20)  (726s)
+   07:37:32 task 2: Success rate: 75.00%  (15/20)  (836s)
+   07:49:33 task 3: Success rate: 85.00%  (17/20)  (721s)
+   08:00:50 task 4: Success rate: 95.00%  (19/20)  (676s)
+   08:19:58 task 5: Success rate: 50.00%  (10/20)  (1148s)
+   08:31:13 task 6: Success rate: 100.00%  (20/20)  (675s)
+   08:40:50 task 7: Success rate: 100.00%  (20/20)  (577s)
+   08:52:32 task 8: Success rate: 100.00%  (20/20)  (702s)
+   09:06:21 task 9: Success rate: 75.00%  (15/20)  (829s)
+== 09:06:52 q8v_fa_mmdef  gguf=smolvla-q8_0-vis.gguf  flags=[--flash-attn --mm-prec default]  tasks=[0 1 2 3 4 5 6 7 8 9]  episodes=20
+   09:21:09 task 0: Success rate: 90.00%  (18/20)  (849s)
+   09:36:58 task 1: Success rate: 80.00%  (16/20)  (949s)
+   09:51:17 task 2: Success rate: 85.00%  (17/20)  (859s)
+   10:02:45 task 3: Success rate: 95.00%  (19/20)  (687s)
+   10:15:36 task 4: Success rate: 95.00%  (19/20)  (771s)
+== bf16: all tasks already done, skipping
+== q8v_fa_mmdef_s5: all tasks already done, skipping
+== 23:56:01 q8v_fa_mmdef  gguf=smolvla-q8_0-vis.gguf  flags=[--flash-attn --mm-prec default]  tasks=[5 6 7 8 9]  episodes=20
+   00:17:17 task 5: Success rate: 50.00%  (10/20)  (1274s)
+   00:31:37 task 6: Success rate: 90.00%  (18/20)  (860s)
+   00:43:54 task 7: Success rate: 90.00%  (18/20)  (737s)
+   00:57:19 task 8: Success rate: 95.00%  (19/20)  (805s)
+   01:11:54 task 9: Success rate: 80.00%  (16/20)  (875s)
+== 01:12:25 bf16_fa_mmdef_s5  gguf=smolvla-libero.gguf  flags=[--flash-attn --mm-prec default --num-steps 5]  tasks=[0 1 2 3 4 5 6 7 8 9]  episodes=20
+   01:26:05 task 0: Success rate: 90.00%  (18/20)  (816s)
+   01:39:27 task 1: Success rate: 85.00%  (17/20)  (802s)
+   01:49:18 task 2: Success rate: 100.00%  (20/20)  (591s)
+   01:59:12 task 3: Success rate: 100.00%  (20/20)  (594s)
+   02:12:55 task 4: Success rate: 85.00%  (17/20)  (823s)
+   02:33:39 task 5: Success rate: 45.00%  (9/20)  (1244s)
+   02:47:25 task 6: Success rate: 90.00%  (18/20)  (826s)
+   02:57:17 task 7: Success rate: 100.00%  (20/20)  (592s)
+   03:09:19 task 8: Success rate: 100.00%  (20/20)  (722s)
+   03:21:53 task 9: Success rate: 85.00%  (17/20)  (754s)
+== 03:22:24 done
+== bf16: all tasks already done, skipping
+== q8v_fa_mmdef_s5: all tasks already done, skipping
+== q8v_fa_mmdef: all tasks already done, skipping
+== bf16_fa_mmdef_s5: all tasks already done, skipping
+== 02:19:03 q8v_fa_mmdef_s4  gguf=smolvla-q8_0-vis.gguf  flags=[--flash-attn --mm-prec default --num-steps 4]  tasks=[0 1 2 3 4 5 6 7 8 9]  episodes=20
+   02:31:18 task 0: Success rate: 90.00%  (18/20)  (733s)
+   02:42:16 task 1: Success rate: 95.00%  (19/20)  (658s)
+   02:52:45 task 2: Success rate: 95.00%  (19/20)  (629s)
+   03:04:22 task 3: Success rate: 85.00%  (17/20)  (697s)
+   03:14:44 task 4: Success rate: 100.00%  (20/20)  (621s)
+   03:33:24 task 5: Success rate: 50.00%  (10/20)  (1120s)
+   03:46:04 task 6: Success rate: 90.00%  (18/20)  (760s)
+   03:57:15 task 7: Success rate: 90.00%  (18/20)  (671s)
+   04:08:19 task 8: Success rate: 100.00%  (20/20)  (664s)
+   04:21:56 task 9: Success rate: 75.00%  (15/20)  (817s)
+== 04:22:27 done

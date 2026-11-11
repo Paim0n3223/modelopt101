@@ -1,0 +1,170 @@
+start 2026-11-06 04:10:22 +0000
++ export CMAKE_POLICY_VERSION_MINIMUM=3.5
++ CMAKE_POLICY_VERSION_MINIMUM=3.5
++++ dirname eval/sim/libero/setup_libero.sh
+++ cd eval/sim/libero
+++ pwd
++ SCRIPT_DIR=/home/qdung/vla.cpp/eval/sim/libero
++ LIBERO_REPO=/home/qdung/vla.cpp/eval/sim/libero/LIBERO
++ LIBERO_UV_ENV=/home/qdung/vla.cpp/eval/sim/libero/libero_uv
+++ cd /home/qdung/vla.cpp/eval/sim/libero/../..
+++ pwd
++ REPO_ROOT=/home/qdung/vla.cpp/eval
++ GITMODULES_PATH=/home/qdung/vla.cpp/eval/.gitmodules
+++ git config -f /home/qdung/vla.cpp/eval/.gitmodules --get submodule.external_dependencies/LIBERO.url
+++ true
++ LIBERO_GIT_URL=
++ '[' -z '' ']'
++ LIBERO_GIT_URL=https://github.com/Lifelong-Robot-Learning/LIBERO.git
+++ dirname /home/qdung/vla.cpp/eval/sim/libero/LIBERO
++ mkdir -p /home/qdung/vla.cpp/eval/sim/libero
++ '[' -d /home/qdung/vla.cpp/eval/sim/libero/LIBERO/.git ']'
++ '[' -d /home/qdung/vla.cpp/eval/sim/libero/LIBERO ']'
++ git clone https://github.com/Lifelong-Robot-Learning/LIBERO.git /home/qdung/vla.cpp/eval/sim/libero/LIBERO
+Cloning into '/home/qdung/vla.cpp/eval/sim/libero/LIBERO'...
+Updating files:  36% (404/1116)Updating files:  37% (413/1116)Updating files:  38% (425/1116)Updating files:  39% (436/1116)Updating files:  40% (447/1116)Updating files:  41% (458/1116)Updating files:  42% (469/1116)Updating files:  43% (480/1116)Updating files:  44% (492/1116)Updating files:  45% (503/1116)Updating files:  46% (514/1116)Updating files:  47% (525/1116)Updating files:  48% (536/1116)Updating files:  49% (547/1116)Updating files:  50% (558/1116)Updating files:  51% (570/1116)Updating files:  52% (581/1116)Updating files:  53% (592/1116)Updating files:  54% (603/1116)Updating files:  55% (614/1116)Updating files:  56% (625/1116)Updating files:  57% (637/1116)Updating files:  58% (648/1116)Updating files:  59% (659/1116)Updating files:  60% (670/1116)Updating files:  61% (681/1116)Updating files:  62% (692/1116)Updating files:  63% (704/1116)Updating files:  64% (715/1116)Updating files:  65% (726/1116)Updating files:  66% (737/1116)Updating files:  67% (748/1116)Updating files:  68% (759/1116)Updating files:  69% (771/1116)Updating files:  70% (782/1116)Updating files:  71% (793/1116)Updating files:  72% (804/1116)Updating files:  73% (815/1116)Updating files:  74% (826/1116)Updating files:  75% (837/1116)Updating files:  76% (849/1116)Updating files:  77% (860/1116)Updating files:  78% (871/1116)Updating files:  79% (882/1116)Updating files:  80% (893/1116)Updating files:  81% (904/1116)Updating files:  82% (916/1116)Updating files:  83% (927/1116)Updating files:  84% (938/1116)Updating files:  85% (949/1116)Updating files:  86% (960/1116)Updating files:  87% (971/1116)Updating files:  88% (983/1116)Updating files:  89% (994/1116)Updating files:  90% (1005/1116)Updating files:  91% (1016/1116)Updating files:  92% (1027/1116)Updating files:  93% (1038/1116)Updating files:  94% (1050/1116)Updating files:  95% (1061/1116)Updating files:  96% (1072/1116)Updating files:  97% (1083/1116)Updating files:  98% (1094/1116)Updating files:  99% (1105/1116)Updating files: 100% (1116/1116)Updating files: 100% (1116/1116), done.
++ rm -rf /home/qdung/vla.cpp/eval/sim/libero/libero_uv
++ mkdir -p /home/qdung/vla.cpp/eval/sim/libero/libero_uv
++ uv venv /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv --python 3.10
+Downloading cpython-3.10.22-linux-x86_64-gnu (download) (28.0MiB)
+ Downloaded cpython-3.10.22-linux-x86_64-gnu (download)
+Using CPython 3.10.22
+Creating virtual environment at: eval/sim/libero/libero_uv/.venv
+Activate with: source eval/sim/libero/libero_uv/.venv/bin/activate
++ source /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/bin/activate
+++ '[' -n x ']'
+++ '[' /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/bin/activate = eval/sim/libero/setup_libero.sh ']'
+++ '[' false = true ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV
+++ '[' false = true ']'
+++ _OLD_VIRTUAL_PATH='/home/qdung/.local/bin:/usr/local/cuda-13.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/qdung/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Users/qdung/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/GitHub CLI:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files (x86)/cloudflared:/mnt/c/Users/qdung/.local/bin:/mnt/c/Users/qdung/miniconda3:/mnt/c/Users/qdung/miniconda3/Library/mingw-w64/bin:/mnt/c/Users/qdung/miniconda3/Library/usr/bin:/mnt/c/Users/qdung/miniconda3/Library/bin:/mnt/c/Users/qdung/miniconda3/Scripts:/mnt/c/Users/qdung/miniconda3/bin:/mnt/c/Users/qdung/miniconda3/condabin:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code:/mnt/c/Users/qdung/AppData/Local/Microsoft/WindowsApps:/mnt/c/Ruby34-x64/bin:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/qdung/.dotnet/tools:/mnt/c/Users/qdung/AppData/Roaming/npmc:/mnt/c/Program Files/Git/Users/qdung/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts:/mnt/c/Users/qdung/AppData/Roaming/npm:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/GitHub CLI:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl:/mnt/c/Users/qdung/AppData/Roaming/npm'
+++ PATH='/home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv/bin:/home/qdung/.local/bin:/usr/local/cuda-13.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/qdung/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Users/qdung/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/GitHub CLI:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files (x86)/cloudflared:/mnt/c/Users/qdung/.local/bin:/mnt/c/Users/qdung/miniconda3:/mnt/c/Users/qdung/miniconda3/Library/mingw-w64/bin:/mnt/c/Users/qdung/miniconda3/Library/usr/bin:/mnt/c/Users/qdung/miniconda3/Library/bin:/mnt/c/Users/qdung/miniconda3/Scripts:/mnt/c/Users/qdung/miniconda3/bin:/mnt/c/Users/qdung/miniconda3/condabin:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code:/mnt/c/Users/qdung/AppData/Local/Microsoft/WindowsApps:/mnt/c/Ruby34-x64/bin:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/qdung/.dotnet/tools:/mnt/c/Users/qdung/AppData/Roaming/npmc:/mnt/c/Program Files/Git/Users/qdung/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts:/mnt/c/Users/qdung/AppData/Roaming/npm:/mnt/c/Users/qdung/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/GitHub CLI:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl:/mnt/c/Users/qdung/AppData/Roaming/npm'
+++ export PATH
+++ '[' x '!=' x ']'
++++ basename /home/qdung/vla.cpp/eval/sim/libero/libero_uv/.venv
+++ VIRTUAL_ENV_PROMPT=.venv
+++ export VIRTUAL_ENV_PROMPT
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(.venv) '
+++ export PS1
+++ alias pydoc
+++ true
+++ hash -r
++ uv pip install --requirements /home/qdung/vla.cpp/eval/sim/libero/LIBERO/requirements.txt
+Using Python 3.10.22 environment at: eval/sim/libero/libero_uv/.venv
+Resolved 122 packages in 5m 26s
+   Building future==0.18.2
+   Building gym==0.25.2
+Downloading hf-xet (4.1MiB)
+Downloading sympy (6.0MiB)
+Downloading networkx (1.6MiB)
+Downloading pygments (1.2MiB)
+Downloading torchvision (7.2MiB)
+Downloading numba (3.7MiB)
+Downloading kiwisolver (1.6MiB)
+Downloading pillow (6.6MiB)
+Downloading cuda-bindings (6.8MiB)
+Downloading scipy (36.8MiB)
+Downloading grpcio (7.0MiB)
+Downloading nvidia-nvjitlink (44.5MiB)
+Downloading nvidia-cublas (403.5MiB)
+Downloading tensorboard-data-server (6.3MiB)
+Downloading nvidia-cusparselt-cu13 (162.3MiB)
+Downloading fonttools (5.0MiB)
+Downloading nvidia-cufile (1.2MiB)
+      Built gym==0.25.2
+      Built future==0.18.2
+Downloading mujoco (25.2MiB)
+Downloading pyopengl (3.0MiB)
+Downloading nvidia-nccl-cu13 (206.0MiB)
+Downloading nvidia-cusolver (191.6MiB)
+Downloading imageio-ffmpeg (64.8MiB)
+Downloading opencv-python (58.1MiB)
+Downloading nvidia-cufft (204.2MiB)
+Downloading torch (528.9MiB)
+Downloading protobuf (1.0MiB)
+Downloading transformers (4.4MiB)
+Downloading tensorboard (5.3MiB)
+Downloading triton (236.4MiB)
+Downloading tokenizers (6.3MiB)
+Downloading nvidia-cuda-nvrtc (86.0MiB)
+Downloading robosuite (184.5MiB)
+Downloading matplotlib (11.3MiB)
+Downloading nvidia-cusparse (139.2MiB)
+Downloading numpy (16.0MiB)
+Downloading nvidia-cuda-runtime (2.1MiB)
+Downloading wandb (1.7MiB)
+Downloading nvidia-nvshmem-cu13 (57.6MiB)
+Downloading llvmlite (56.9MiB)
+Downloading h5py (4.8MiB)
+Downloading nvidia-curand (56.8MiB)
+Downloading nvidia-cuda-cupti (10.2MiB)
+Downloading nvidia-cudnn-cu13 (527.5MiB)
+   Building egl-probe==1.0.2
+   Building robomimic==0.2.0
+      Built robomimic==0.2.0
+      Built egl-probe==1.0.2
+   Building bddl==1.0.1
+      Built bddl==1.0.1
+   Building easydict==1.9
+      Built easydict==1.9
+   Building pathtools==0.1.2
+      Built pathtools==0.1.2
+   Building promise==2.3
+      Built promise==2.3
+   Building antlr4-python3-runtime==4.9.3
+      Built antlr4-python3-runtime==4.9.3
+ Downloaded protobuf
+ Downloaded nvidia-cufile
+ Downloaded pygments
+ Downloaded kiwisolver
+ Downloaded networkx
+ Downloaded wandb
+ Downloaded nvidia-cuda-runtime
+ Downloaded pyopengl
+ Downloaded numba
+ Downloaded hf-xet
+ Downloaded transformers
+ Downloaded h5py
+ Downloaded fonttools
+ Downloaded tensorboard
+ Downloaded sympy
+ Downloaded tensorboard-data-server
+ Downloaded tokenizers
+ Downloaded pillow
+ Downloaded cuda-bindings
+ Downloaded grpcio
+ Downloaded torchvision
+ Downloaded nvidia-cuda-cupti
+ Downloaded matplotlib
+ Downloaded numpy
+ Downloaded mujoco
+ Downloaded scipy
+ Downloaded nvidia-nvjitlink
+ Downloaded llvmlite
+ Downloaded nvidia-curand
+ Downloaded opencv-python
+ Downloaded nvidia-nvshmem-cu13
+ Downloaded imageio-ffmpeg
+ Downloaded nvidia-cuda-nvrtc
+ Downloaded nvidia-cusparse
+ Downloaded nvidia-cusparselt-cu13
+ Downloaded robosuite
+ Downloaded nvidia-cusolver
+ Downloaded nvidia-cufft
+ Downloaded nvidia-nccl-cu13
+ Downloaded triton

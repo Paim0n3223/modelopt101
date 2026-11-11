@@ -1,0 +1,22 @@
+# name|env vars|vla flags   (the first line is the reference for the output deviation)
+default||
+# Runtime flags from docs/USAGE.md and the TEMPLATE.md flag screen
+fa||--flash-attn
+mmdef||--mm-prec default
+fa_mmdef||--flash-attn --mm-prec default
+wbf16||--weight-dtype bf16
+wbf16_fa||--weight-dtype bf16 --flash-attn
+wf16||--weight-dtype f16
+wf16_fa||--weight-dtype f16 --flash-attn
+act_bf16||--act-dtype bf16
+# Denoise steps (checkpoint default is 10)
+steps8||--num-steps 8
+steps5||--num-steps 5
+steps3||--num-steps 3
+steps2||--num-steps 2
+steps1||--num-steps 1
+# Switching off vla.cpp's own CUDA fast paths (docs/backend/cuda.md), to see what each is worth
+fused0|VLA_FUSED_OPS=0|
+gemm_exact0|VLA_GEMM_EXACT=0|
+attn_exact0|VLA_ATTN_EXACT=0|
+graphs0|GGML_CUDA_DISABLE_GRAPHS=1|

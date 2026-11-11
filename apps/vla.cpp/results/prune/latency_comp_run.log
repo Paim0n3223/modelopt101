@@ -1,0 +1,7 @@
+== 01:20:43 bf16  env=[]  flags=[]
+== 01:22:06 cos_k2_comp  env=[VLA_GGUF=/home/qdung/models/smolvla-prune/cos_k2_comp.gguf]  flags=[]
+== 01:23:33 cos_k4_comp  env=[VLA_GGUF=/home/qdung/models/smolvla-prune/cos_k4_comp.gguf]  flags=[]
+== 01:24:54 q8v_fa_mmdef_s5  env=[VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf]  flags=[--flash-attn --mm-prec default --num-steps 5]
+== 01:26:10 q8v_cos_k2_comp_s5  env=[VLA_GGUF=/home/qdung/models/smolvla-prune/cos_k2_comp-q8_0-vis.gguf]  flags=[--flash-attn --mm-prec default --num-steps 5]
+== 01:27:30 q8v_cos_k4_comp_s5  env=[VLA_GGUF=/home/qdung/models/smolvla-prune/cos_k4_comp-q8_0-vis.gguf]  flags=[--flash-attn --mm-prec default --num-steps 5]
+== 01:28:46 done

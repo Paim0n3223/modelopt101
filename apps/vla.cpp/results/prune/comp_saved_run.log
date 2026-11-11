@@ -1,0 +1,17 @@
+Loading weights from local directory
+3 depth configs, 12 runs to compensate, 12 Gram matrices, width ratios [], alphas [0.001]
+100 evaluation samples, 179 fitting samples
+fitting pass 40/179, 37s
+fitting pass 80/179, 72s
+fitting pass 120/179, 108s
+fitting pass 160/179, 142s
+statistics done (159s): rows lm 25233, expert 89500
+full model: mean |arm action| at t0 1.317e-01
+depth cos_k2       alpha 0.001  rel 0.087 (no comp 0.243) p90 1.801e-02 grip_t0 0.010 lm:20-21@19 expert:20-21@19 lm:25-26@24 expert:25-26@24 79s
+   saved /home/qdung/models/smolvla-comp/cos_k2_comp32 (4 down_proj tensors compensated)
+depth cka_k4       alpha 0.001  rel 0.168 (no comp 0.447) p90 3.809e-02 grip_t0 0.010 lm:21-26@20 expert:21-26@20 lm:28-29@27 expert:28-29@27 82s
+   saved /home/qdung/models/smolvla-comp/cka_k4_comp32 (4 down_proj tensors compensated)
+depth cos_k4       alpha 0.001  rel 0.142 (no comp 0.364) p90 3.146e-02 grip_t0 0.030 lm:11-12@10 expert:11-12@10 lm:16-17@15 expert:16-17@15 lm:20-21@19 expert:20-21@19 lm:25-26@24 expert:25-26@24 80s
+   saved /home/qdung/models/smolvla-comp/cos_k4_comp32 (8 down_proj tensors compensated)
+restore check: max |full after all configs - full before| = 0.00e+00
+total 570s, wrote results/prune/comp_saved

@@ -1,0 +1,6 @@
+== 03:11:20 default 
+== 03:12:57 fa_mmdef --flash-attn --mm-prec default
+== 03:14:31 fa --flash-attn
+== 03:16:05 mmdef --mm-prec default
+== 03:17:39 fa_mmdef_steps5 --flash-attn --mm-prec default --num-steps 5
+== 03:19:10 done

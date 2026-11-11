@@ -1,0 +1,11 @@
+# 2x2x2 factorial to separate the effects on the vision stage:
+#   weights (BF16 vs Q8_0 incl. vision tower) x --flash-attn (off/on) x --mm-prec (f32 default / default)
+# The first line is the reference for the output deviation.
+bf16||
+bf16_fa||--flash-attn
+bf16_mmdef||--mm-prec default
+bf16_fa_mmdef||--flash-attn --mm-prec default
+q8v|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|
+q8v_fa|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn
+q8v_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--mm-prec default
+q8v_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default

@@ -1,0 +1,34 @@
+Loading weights from local directory
+100 evaluation samples, 179 scoring samples
+scoring 40/179, 37s
+scoring 80/179, 75s
+scoring 120/179, 115s
+scoring 160/179, 150s
+scores done (167s): LM 32 x 2560, expert 32 x 1280 neurons
+full model: torch vs recorded server arm_t0 8.13e-04; mean |arm action| at t0 1.317e-01
+act  lm     0.050 [lm:2432/2560] arm_t0 rel 0.143 p90 3.974e-02 grip_t0 0.030  78s
+act  lm     0.125 [lm:2240/2560] arm_t0 rel 0.267 p90 8.172e-02 grip_t0 0.060  84s
+act  lm     0.250 [lm:1920/2560] arm_t0 rel 0.415 p90 1.131e-01 grip_t0 0.060  79s
+act  lm     0.500 [lm:1280/2560] arm_t0 rel 0.457 p90 1.158e-01 grip_t0 0.060  78s
+act  expert 0.050 [expert:1216/1280] arm_t0 rel 0.016 p90 3.237e-03 grip_t0 0.010  80s
+act  expert 0.125 [expert:1120/1280] arm_t0 rel 0.040 p90 9.359e-03 grip_t0 0.020  77s
+act  expert 0.250 [expert:960/1280] arm_t0 rel 0.077 p90 1.807e-02 grip_t0 0.020  86s
+act  expert 0.500 [expert:640/1280] arm_t0 rel 0.187 p90 4.420e-02 grip_t0 0.020  77s
+mag  lm     0.050 [lm:2432/2560] arm_t0 rel 0.456 p90 1.311e-01 grip_t0 0.050  83s
+mag  lm     0.125 [lm:2240/2560] arm_t0 rel 0.585 p90 1.517e-01 grip_t0 0.060  83s
+mag  lm     0.250 [lm:1920/2560] arm_t0 rel 0.595 p90 1.420e-01 grip_t0 0.070  78s
+mag  lm     0.500 [lm:1280/2560] arm_t0 rel 0.826 p90 1.720e-01 grip_t0 0.100  78s
+mag  expert 0.050 [expert:1216/1280] arm_t0 rel 0.051 p90 9.762e-03 grip_t0 0.010  77s
+mag  expert 0.125 [expert:1120/1280] arm_t0 rel 0.101 p90 2.306e-02 grip_t0 0.010  79s
+mag  expert 0.250 [expert:960/1280] arm_t0 rel 0.196 p90 4.549e-02 grip_t0 0.020  78s
+mag  expert 0.500 [expert:640/1280] arm_t0 rel 0.394 p90 9.623e-02 grip_t0 0.030  78s
+rand lm     0.050 [lm:2432/2560] arm_t0 rel 0.187 p90 4.610e-02 grip_t0 0.040  78s
+rand lm     0.125 [lm:2240/2560] arm_t0 rel 0.375 p90 8.720e-02 grip_t0 0.040  78s
+rand lm     0.250 [lm:1920/2560] arm_t0 rel 0.560 p90 1.144e-01 grip_t0 0.050  77s
+rand lm     0.500 [lm:1280/2560] arm_t0 rel 0.785 p90 1.687e-01 grip_t0 0.110  80s
+rand expert 0.050 [expert:1216/1280] arm_t0 rel 0.049 p90 1.154e-02 grip_t0 0.010  81s
+rand expert 0.125 [expert:1120/1280] arm_t0 rel 0.111 p90 2.653e-02 grip_t0 0.000  78s
+rand expert 0.250 [expert:960/1280] arm_t0 rel 0.204 p90 5.059e-02 grip_t0 0.010  81s
+rand expert 0.500 [expert:640/1280] arm_t0 rel 0.409 p90 9.475e-02 grip_t0 0.030  78s
+restore check: max |full after all configs - full before| = 0.00e+00
+total 2225s, wrote results/prune/width

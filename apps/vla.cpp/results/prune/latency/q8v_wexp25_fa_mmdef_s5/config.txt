@@ -1,0 +1,1 @@
+VLA_GGUF=/home/qdung/models/smolvla-prune/wexp_act25-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 5

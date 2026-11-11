@@ -1,0 +1,4 @@
+== 03:57:19 q8_0_vis_fa_mmdef /home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf --flash-attn --mm-prec default
+== 03:58:48 q8_0_fa_mmdef /home/qdung/models/smolvla-quant/smolvla-q8_0.gguf --flash-attn --mm-prec default
+== 04:00:18 q4_0_vis_fa_mmdef /home/qdung/models/smolvla-quant/smolvla-q4_0-vis.gguf --flash-attn --mm-prec default
+== 04:01:48 done

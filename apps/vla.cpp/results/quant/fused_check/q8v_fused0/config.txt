@@ -1,0 +1,1 @@
+VLA_FUSED_OPS=0 VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|

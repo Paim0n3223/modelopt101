@@ -1,0 +1,1 @@
+VLA_GGUF=/home/qdung/models/smolvla-prune/drop_30_31.gguf|
