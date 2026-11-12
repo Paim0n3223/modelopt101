@@ -82,6 +82,7 @@ So 3 cách chọn filter: L1 của weight conv, |γ| của BatchNorm (ý tưởn
 - Giả thuyết 1 (BatchNorm): conv → BatchNorm → ReLU, BatchNorm chuẩn hóa lại output mỗi kênh, nên L1 của weight conv không phản ánh đóng góp thật. BN gamma tốt hơn L1 rõ rệt, ủng hộ một phần giả thuyết này.
 - Nhưng ngẫu nhiên vẫn ngang hoặc hơn BN gamma, nên BatchNorm chưa giải thích hết. Giả thuyết thêm (chưa kiểm chứng): kênh bị cắt vẫn đang cho ra hằng số khác 0 (ReLU(β)); độ lớn không đo được sự trùng lặp giữa các filter.
 - Hiện tượng cắt ngẫu nhiên không thua cắt theo độ lớn đã được ghi nhận trong nghiên cứu (ví dụ "Rethinking the Value of Network Pruning", Liu và cộng sự, 2019).
+- Mục D kiểm tra lại bảng này sau khi tính lại thống kê BN: accuracy hồi phục rất nhiều, nhưng ngẫu nhiên vẫn tốt hơn L1 và BN gamma.
 
 ### B. Tiêu chí chọn filter, sau fine-tune 1 epoch (ratio 0.3)
 
@@ -92,7 +93,7 @@ So 3 cách chọn filter: L1 của weight conv, |γ| của BatchNorm (ý tưởn
 | Ngẫu nhiên (seed 0) | 25.30% (TB 3 seed) | 99.40% | 60 |
 
 - Thứ tự đảo ngược: L1 từ tệ nhất thành tốt nhất.
-- Cách hiểu: ngay sau khi cắt đo việc phần còn lại có còn ăn khớp không (BatchNorm dùng thống kê cũ, lớp sau thiếu đầu vào), fine-tune sửa rất nhanh. Sau fine-tune mới đo được phần còn lại giữ bao nhiêu kiến thức.
+- Cách hiểu: ngay sau khi cắt đo việc phần còn lại có còn ăn khớp không (BatchNorm dùng thống kê cũ, lớp sau thiếu đầu vào), fine-tune sửa rất nhanh. Sau fine-tune mới đo được phần còn lại giữ bao nhiêu kiến thức. Mục D xác nhận phần "BatchNorm dùng thống kê cũ": chỉ tính lại BN đã hồi phục phần lớn accuracy.
 - Dè dặt: chênh L1 và ngẫu nhiên 18 lỗi, chỉ hơn mức nhiễu (±10) một chút; ngẫu nhiên chỉ 1 seed, chỉ 1 lần chạy, 1 epoch. Fine-tune đủ 4 epoch có thể về gần bằng nhau (L1 và "giữ k đầu" đều ra 99.68%).
 - Bài học: không nên đánh giá tiêu chí cắt bằng accuracy ngay sau khi cắt.
 
@@ -114,7 +115,47 @@ Quantize (symmetric, per-channel, fake-quant như bài 1) model dense và model 
 - Ước lượng: 288K tham số ở 4 bit (nếu có packing) khoảng 0.14 MB, nhỏ hơn dense FP32 khoảng 32 lần, accuracy giữ 99.68%.
 - Muốn thấy gãy sớm hơn phải thử model thật sự ít dư (student bài 2, hoặc cắt 80–90% filter).
 
+### D. Tính lại thống kê BatchNorm sau khi cắt (không train)
+
+Theo feedback của mentor: con số 9.74% thực ra là model đoán mọi ảnh vào một lớp, và có thể L1 không hơn ngẫu nhiên là do BatchNorm đã chuẩn hóa lại độ lớn của weight. Em thử cắt xong chỉ tính lại thống kê BN rồi đo lại.
+- Cách tính lại BN: xóa mean và var cũ của mọi lớp BN, cho 100 batch ảnh train (12,800 ảnh, không augment) đi qua model mà không tính gradient và không dùng nhãn, rồi đo trên tập test. Mỗi model mất vài giây.
+- Script `examples/03_bn_recal.py`, kết quả từng lượt ở `examples/03_bn_recal.csv`. Giữ nguyên model, cách xử lý dữ liệu và cách train như notebook.
+- Chạy trên laptop (RTX 3050 Ti), train 3 model dense với 3 seed. Tiêu chí ngẫu nhiên dùng 5 seed cho mỗi model dense, tức 15 lượt.
+- Ngoài accuracy, em ghi thêm tỉ lệ ảnh rơi vào lớp được đoán nhiều nhất. Nếu model đoán mọi ảnh vào một lớp thì con số này gần 100%; phân bố thật của tập test là khoảng 10–11% mỗi lớp.
+- Mốc so sánh: bản L1 cắt 0.5 được fine-tune 4 epoch như notebook.
+
+| Tỉ lệ cắt | Tiêu chí | Ngay sau khi cắt | Lớp đoán nhiều nhất | Sau khi tính lại BN | Lớp đoán nhiều nhất |
+|---|---|--:|--:|--:|--:|
+| 0 | Dense | 99.68% | 11.4% | 99.68% | 11.4% |
+| 0.1 | L1 | 78.89% | 24.8% | 99.62% | 11.3% |
+| 0.1 | BN gamma | 92.06% | 13.3% | 99.16% | 11.3% |
+| 0.1 | Ngẫu nhiên | 95.15% | 13.6% | 99.56% | 11.4% |
+| 0.2 | L1 | 25.83% | 69.1% | 98.68% | 10.8% |
+| 0.2 | BN gamma | 57.75% | 38.1% | 97.01% | 11.0% |
+| 0.2 | Ngẫu nhiên | 53.37% | 44.8% | 99.38% | 11.4% |
+| 0.3 | L1 | 12.61% | 87.6% | 87.82% | 19.0% |
+| 0.3 | BN gamma | 21.01% | 81.5% | 89.88% | 13.5% |
+| 0.3 | Ngẫu nhiên | 25.67% | 76.4% | 98.85% | 11.4% |
+| 0.5 | L1 | 9.80% | 96.1% | 72.02% | 21.0% |
+| 0.5 | BN gamma | 10.54% | 95.3% | 56.20% | 27.2% |
+| 0.5 | Ngẫu nhiên | 11.23% | 99.5% | 88.77% (74.35–97.47%) | 15.1% |
+| 0.5 | L1, fine-tune 4 epoch thay cho tính lại BN | 9.80% | 96.1% | 99.60% | 11.4% |
+
+Số trong bảng là trung bình của 3 model dense (riêng ngẫu nhiên là 15 lượt).
+
+- Mentor nhận xét đúng: ở tỉ lệ 0.3 và 0.5, ngay sau khi cắt, lớp được đoán nhiều nhất chiếm 95–100% số ảnh, tức model gần như đoán mọi ảnh vào một lớp.
+- Chỉ tính lại BN, không train, đã hồi phục được phần lớn: cắt 0.1–0.2 gần như về lại mức dense (98.7–99.6%), cắt 0.5 thì L1 từ khoảng 10% lên 72%, ngẫu nhiên lên khoảng 89%. Như vậy phần lớn việc "sập về 10%" trước đây không phải do mất kiến thức, mà do BN vẫn dùng thống kê cũ, không còn khớp với các kênh đã bị cắt.
+- Fine-tune vẫn cần ở tỉ lệ cắt cao: 4 epoch (khoảng 70 giây) đưa L1 cắt 0.5 lên 99.60%, so với 72% khi chỉ tính lại BN.
+- Sau khi tính lại BN, L1 vẫn không hơn ngẫu nhiên, và còn kém rõ ở tỉ lệ 0.3 (87.8% so với 98.9%) và 0.5 (72.0% so với 88.8%). Vậy thống kê BN bị lệch không phải lý do khiến L1 thua. Kết quả phù hợp với cách hiểu của mentor rằng trong mạng có BN, độ lớn của weight conv gần như không cho biết filter quan trọng đến đâu, vì BN chuẩn hóa lại output của từng kênh. Em chưa kiểm chứng trực tiếp điều này.
+- BN gamma cũng không tốt hơn ngẫu nhiên, và kém nhất ở tỉ lệ 0.5. Theo em hiểu, Network Slimming dùng gamma làm tiêu chí sau khi train thêm một ràng buộc ép gamma thưa; ở đây không có bước đó nên có thể gamma chưa mang thông tin (chưa kiểm chứng).
+- Cắt ngẫu nhiên ở tỉ lệ 0.5 dao động rất rộng (74–97%), tức là cắt trúng filter nào ảnh hưởng nhiều tới kết quả.
+- Bài học: muốn so các tiêu chí cắt thì phải tính lại BN trước khi đo. Nếu không, phép đo chủ yếu phản ánh thống kê BN cũ chứ không phải chất lượng của tiêu chí.
+
 ### Code để chạy lại
+
+Mục D: `python examples/03_bn_recal.py` (từ thư mục gốc của repo), xem lại bảng tổng hợp bằng `python examples/03_bn_recal.py --summary`.
+
+Mục A, B, C:
 
 Chạy sau khi đã chạy hết notebook (cần `model_dense`, `pruned`, `Net`, `conv_blocks`, `train`, `evaluate`, `count_params`).
 
@@ -186,6 +227,7 @@ for b in [8, 4, 3, 2]:
 
 - Granularity quyết định pruning có "thật" hay không. Unstructured chịu cắt tốt nhưng không nhỏ hơn, không nhanh hơn; structured nhỏ và nhanh thật (lần đầu tiên latency giảm trong 3 bài).
 - Việc fine-tune sau khi cắt là rất nên làm vì cải thiện accuracy rất mạnh (từ ~10% lên 99.68%), và nó làm sai lệch do cắt không dồn sang bước sau.
-- Ở thí nghiệm đầu tiên, kết quả của em mâu thuẫn với kỳ vọng của notebook ở thời điểm ngay sau khi cắt (ngẫn nhiên mạnh hơn L1), nhưng có xu hướng khớp sau fine-tune nên em cho rằng không nên đánh giá tiêu chí cắt bằng accuracy ngay sau khi cắt.
+- Ở thí nghiệm đầu tiên, kết quả của em mâu thuẫn với kỳ vọng của notebook ở thời điểm ngay sau khi cắt (ngẫu nhiên mạnh hơn L1), nhưng có xu hướng khớp sau fine-tune nên em cho rằng không nên đánh giá tiêu chí cắt bằng accuracy ngay sau khi cắt.
+- Accuracy khoảng 10% ngay sau khi cắt chủ yếu là do thống kê BatchNorm cũ, không phải do mất kiến thức: chỉ tính lại BN (vài giây, không train, không cần nhãn) đã đưa accuracy về gần mức dense khi cắt 10–20%. Vì vậy muốn so các tiêu chí cắt thì phải tính lại BN trước khi đo. Sau khi tính lại BN, L1 vẫn không hơn cắt ngẫu nhiên.
 - Sau fine-tune, khác biệt giữa các tiêu chí chỉ vài chục lỗi, gần mức nhiễu.
 - Thí nghiệm prune rồi quantize kết hợp tốt trên MNIST, nhỏ hơn khoảng 32 lần mà không mất accuracy.
