@@ -79,10 +79,11 @@ Cách làm: mỗi lần chạy đặt lại cùng seed (`torch.manual_seed(0)`) 
 | 0.7 | | 99.42% | 58 |
 | 1.0 | Chỉ teacher | 99.36% | 64 |
 
-- α = 0.0 chính là student không KD chạy cùng seed. So với nó, KD giảm 73 → 58 lỗi (khoảng 20%), vượt mức nhiễu.
-- Kết hợp với thí nghiệm A: T = 1 (62 lỗi) vẫn tốt hơn không KD (73 lỗi), nên KD giúp được ngay cả khi không làm mềm.
-- α = 1.0: student không hề nhìn thấy nhãn mà vẫn tốt hơn student học từ nhãn (64 so với 73), vì output của teacher đã chứa gần đủ thông tin của nhãn cộng thêm dark knowledge.
-- Kết hợp cả hai (α = 0.3 hoặc 0.7) có xu hướng tốt nhất, nhãn giúp sửa những chỗ teacher sai. Chênh lệch với α = 1.0 (6 lỗi) nằm trong vùng nhiễu.
+- α = 0.0 chính là student không KD chạy cùng seed. So với nó, KD giảm 73 xuống 58 lỗi (khoảng 20%). Chênh lệch 15 lỗi lớn hơn mức nhiễu nhưng không nhiều, và mới chạy một seed.
+- Kết hợp với thí nghiệm A: T = 1 (62 lỗi) ít lỗi hơn không KD (73 lỗi). Chênh 11 lỗi chỉ vừa sát mức nhiễu, nên em chưa kết luận được KD có giúp khi không làm mềm hay không.
+- α = 1.0: student không nhìn thấy nhãn mà vẫn đạt 64 lỗi, so với 73 lỗi của student học từ nhãn. Chênh 9 lỗi nằm trong vùng nhiễu, nên em chỉ nói được là học hoàn toàn từ teacher không kém học từ nhãn, chưa nói được là tốt hơn.
+- Kết hợp cả hai (α = 0.3 hoặc 0.7) cho số lỗi thấp nhất, nhưng chênh lệch với α = 1.0 (6 lỗi) cũng nằm trong vùng nhiễu.
+- Để khẳng định các so sánh trên cần chạy nhiều seed rồi so trung bình và độ lệch.
 
 ### C. Student nhỏ hơn (T = 4)
 
@@ -93,8 +94,9 @@ TinyStudent: 8 → 16 → 16 kênh, 3,778 tham số (nhỏ hơn Student khoảng
 | Student | 14,458 | 73 lỗi | 58 lỗi | 15 lỗi (~21%) |
 | TinyStudent | 3,778 | 131 lỗi (98.69%) | 100 lỗi (99.00%) | 31 lỗi (~24%) |
 
-- Student càng yếu, KD giúp càng nhiều (tính theo số lỗi). Kết quả này vượt xa mức nhiễu.
-- Nhưng KD không bù được hết cho model quá nhỏ: TinyStudent có KD (100 lỗi) vẫn kém Student không KD (73 lỗi).
+- Tính theo số lỗi tuyệt đối thì KD giúp TinyStudent nhiều hơn (31 so với 15 lỗi). Nhưng TinyStudent có nhiều lỗi hơn ngay từ đầu, nên tính theo tỉ lệ thì hai student giảm gần như bằng nhau (khoảng 21% và 24%), chênh lệch này nằm trong vùng nhiễu.
+- Vì vậy em chưa kết luận được "student càng yếu thì KD giúp càng nhiều". Cần chạy nhiều seed cho cả hai student.
+- KD không bù được hết cho model quá nhỏ: TinyStudent có KD (100 lỗi) vẫn kém Student không KD (73 lỗi).
 
 ### Code để chạy lại các thí nghiệm
 
@@ -124,6 +126,7 @@ TinyStudent giống Student, chỉ đổi số kênh thành 8, 16, 16 và lớp 
 
 - Từ kết quả, em thấy có KD hay không thì khác biệt rõ ràng, trong khi đó chọn T và α trong khoảng hợp lý dù có xu hướng cải thiện kết quả nhưng khác biệt nhỏ, có thể là nhiễu và khoảng hợp lí thường là nằm giữa trong các thí nghiệm đã thực hiện, ít khi nằm ở các giá trị cực đoan.
 - KD không tốn thêm gì lúc chạy, cái giá chỉ nằm ở lúc train (cần một teacher).
-- KD hữu ích nhất khi buộc phải dùng model rất nhỏ, nhưng không thay được sức chứa của model.
+- KD giảm lỗi cho cả hai student theo tỉ lệ gần như nhau, nhưng không thay được sức chứa của model: TinyStudent có KD vẫn kém Student không KD.
+- Bài này mới chạy một seed cho mỗi cấu hình. Các chênh lệch dưới khoảng 10 lỗi em chỉ xem là xu hướng, chưa phải kết luận.
 - Em đang nghĩ về ý tưởng kết hợp với bài 1: distill ra student nhỏ rồi quantize student đó, việc này sẽ giúp tối ưu bộ nhớ trên disk đến mức cực đoan.
 - Cũng khá tương tự với bài quantization, bài toán MNIST vẫn là quá dễ để có thể nhìn thấy được sự khác biệt khi chỉnh T và α.

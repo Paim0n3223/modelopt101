@@ -40,7 +40,7 @@
 - Colab hết hạn mức GPU từ bài 4, em phải đổi sang tài khoản Google khác để có GPU.
 - Placeholder lần này "đẹp giả" rất mạnh. Kernel chỉ cộng 0 nên compiler bỏ luôn phần tính, kết quả toàn số 0 (sai lệch 173.75, `match: False`), vậy mà benchmark lại báo nhanh hơn cuBLAS tới 40 lần, 880 TFLOP/s ở cỡ 4096. Con số này gấp hơn 13 lần đỉnh lý thuyết của T4, tức là vô lý về mặt vật lý. Em rút ra hai thói quen: luôn kiểm tra đúng sai trước khi đo tốc độ, và luôn so con số đo được với đỉnh của phần cứng.
 - Lúc đầu em hiểu sai tiling thành "tính xong ô (1,1) rồi sang ô (1,2)". Thực ra đó chính là cách ngây thơ; phải xem minh họa từng bước em mới thấy điểm khác là cả khối cùng tiến lên.
-- Sau khi sửa xong, kernel đúng nhưng chậm hơn cuBLAS 15–25 lần, trái với kỳ vọng "cùng tầm" của notebook. Nguyên nhân hóa ra không nằm ở code mà ở compiler và đời GPU (mục 6A).
+- Sau khi sửa xong, kernel đúng nhưng chậm hơn cuBLAS 15–25 lần, trái với kỳ vọng "cùng tầm" của notebook. Em tìm được hai nguyên nhân: Triton không dùng tensor core trên T4 (mục 6A), và cấu hình tile mặc định bị tràn thanh ghi (mục 6C). Hai nguyên nhân này vẫn chưa giải thích hết độ chậm.
 
 ## 5. Kết quả
 
@@ -69,7 +69,7 @@ Sau TODO 1 (xếp tile theo nhóm, bản trong notebook đã commit):
 | 4096 | 9.044 | 148.901 | 15.2 | 0.9 | 0.06x |
 
 - Kernel chỉ đạt khoảng 1 TFLOP/s ở mọi cỡ, chậm hơn cuBLAS 15–25 lần.
-- TODO 1 gần như không thay đổi gì, chênh lệch nằm trong vùng nhiễu đo. Xếp theo nhóm giúp đọc bộ nhớ hiệu quả hơn, nhưng kernel trên T4 đang nghẽn ở sức tính chứ không phải ở bộ nhớ, nên tối ưu đúng kỹ thuật mà sai chỗ nghẽn thì không có tác dụng.
+- TODO 1 gần như không thay đổi gì, chênh lệch nằm trong vùng nhiễu đo. Xếp theo nhóm giúp tận dụng cache L2 khi đọc A và B, nhưng việc đọc A và B có lẽ không phải chỗ nghẽn của kernel này. Em đoán chỗ nghẽn nằm ở việc không dùng tensor core và tràn thanh ghi (mục 6), nhưng chưa kiểm chứng bằng profiler.
 - `torch.matmul` đạt cao nhất ở cỡ 1024 rồi giảm dần ở 2048 và 4096. Em đoán là T4 (giới hạn 70 W) bị hạ xung nhịp khi chạy nặng lâu, nhưng chưa kiểm chứng.
 
 ## 6. Thí nghiệm thêm
@@ -86,8 +86,11 @@ Em đếm các lệnh trong PTX (mã trung gian mà Triton sinh ra):
 | Lệnh nhân-cộng thường (`fma.rn`) | 1024 |
 | Compute capability | (7, 5) |
 
-- Trên T4, Triton 3.6 biên dịch `tl.dot` thành nhân-cộng thường trên CUDA core, hoàn toàn không dùng tensor core. Trong khi đó cuBLAS vẫn dùng tensor core trên đời Turing, nên nhanh hơn rất nhiều.
-- Code của em đúng, giới hạn nằm ở compiler và đời GPU. Đây là ví dụ rõ nhất cho câu "kernel optimization is hardware-constrained" trong slide: cùng một dòng `tl.dot`, chạy nhanh hay chậm phụ thuộc compiler có hỗ trợ con chip đó không.
+- Trong PTX, kernel không có lệnh tensor core nào, chỉ có lệnh nhân-cộng thường. Như vậy trên T4, Triton 3.6 biên dịch `tl.dot` thành phép tính trên CUDA core.
+- Giới hạn của bằng chứng này: PTX chưa phải mã máy cuối cùng. Em chưa kiểm tra mã máy (SASS, tìm lệnh `HMMA`) và chưa xác nhận bằng profiler rằng cuBLAS dùng tensor core trong lần đo này.
+- Không dùng tensor core chưa giải thích hết độ chậm. Kernel chỉ đạt khoảng 1 TFLOP/s, trong khi đỉnh của CUDA core thường trên T4 là khoảng 8 TFLOP/s ở FP32 (theo thông số của NVIDIA). Tức là ngay cả khi chỉ dùng CUDA core, kernel vẫn chậm hơn mức có thể đạt khoảng 8 lần.
+- Một nguyên nhân khác em đã thấy là tràn thanh ghi: cấu hình tile mặc định chạm trần 255 thanh ghi và bị spill (mục 6C). Nhưng ngay cả tile 32×32 không spill cũng chỉ đạt 1.54 TFLOP/s, nên vẫn còn nguyên nhân em chưa tìm ra.
+- Cùng một dòng `tl.dot`, chạy nhanh hay chậm phụ thuộc cả compiler, đời GPU lẫn cấu hình tile. Đây là ví dụ cho câu "kernel optimization is hardware-constrained" trong slide.
 - GPU trên laptop của em (RTX 3050 Ti, đời Ampere, compute capability 8.6) có thể cho kết quả khác, nhưng Triton không chạy chính thức trên Windows (cần WSL2), nên em chưa thử.
 
 ### B. Ma trận không vuông
@@ -159,8 +162,8 @@ for bm, bn, bk in [(32, 32, 32), (64, 64, 32), (64, 64, 64), (128, 64, 32), (128
 
 ## 7. Điều em rút ra
 
-- Tối ưu kernel không thay đổi kết quả, chỉ thay đổi cách dữ liệu di chuyển giữa các tầng bộ nhớ. Nhưng hiệu quả của nó phụ thuộc rất nhiều vào phần cứng và compiler: cùng một đoạn code đúng, trên T4 với Triton 3.6 lại chậm hơn cuBLAS 15–25 lần chỉ vì không được dùng tensor core.
-- Phải biết nút thắt nằm ở đâu trước khi tối ưu. TODO 1 là một kỹ thuật đúng, nhưng không có tác dụng ở đây vì kernel không nghẽn ở bộ nhớ.
+- Tối ưu kernel không thay đổi kết quả, chỉ thay đổi cách dữ liệu di chuyển giữa các tầng bộ nhớ. Nhưng hiệu quả của nó phụ thuộc rất nhiều vào phần cứng và compiler: cùng một đoạn code đúng, trên T4 với Triton 3.6 lại chậm hơn cuBLAS 15–25 lần. Em tìm được hai nguyên nhân (không dùng tensor core, tràn thanh ghi), nhưng hai nguyên nhân này chưa giải thích hết, vì kernel vẫn chậm hơn đỉnh của CUDA core thường khoảng 8 lần.
+- Phải biết nút thắt nằm ở đâu trước khi tối ưu. TODO 1 là một kỹ thuật đúng, nhưng không có tác dụng ở đây, có lẽ vì nút thắt nằm ở chỗ khác. Muốn khẳng định cần đo bằng profiler, việc em chưa làm.
 - Lý thuyết "tile to thì dùng lại dữ liệu nhiều hơn" chỉ đúng khi tài nguyên trên chip (thanh ghi, bộ nhớ nhanh) cho phép. Trên T4, tile nhỏ nhất lại nhanh nhất vì không bị spill. Phải đo chứ không nên đoán, và đó cũng là lý do có autotune.
 - Luôn kiểm tra đúng sai trước khi đo tốc độ, và so con số đo được với đỉnh lý thuyết của phần cứng. Placeholder cho thấy một kernel sai hoàn toàn vẫn có thể báo "nhanh gấp 40 lần".
 - Bài này giúp em hiểu vì sao nhóm vla.cpp phải tự viết kernel cho BitVLA: định dạng ternary chưa có thư viện nào hỗ trợ sẵn, và kernel riêng của họ làm mỗi bước nhanh hơn 4.5 lần. Khi phép tính hoặc phần cứng nằm ngoài những gì thư viện có sẵn, tối ưu kernel trở thành việc bắt buộc.

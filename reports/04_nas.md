@@ -79,7 +79,7 @@
 
 - Notebook in ra: nhỏ hơn 1.7x, nhanh hơn 1.7x, +0.09% accuracy.
 - Chênh 9 lỗi nằm trong vùng nhiễu (khoảng ±10 lỗi), nên chỉ nói được là chính xác ngang baseline.
-- Con số "nhanh hơn 1.7x" không lặp lại được (xem thí nghiệm bên dưới).
+- Con số "nhanh hơn 1.7x" không lặp lại được: khi đo lại, kiến trúc NAS chọn còn chậm hơn baseline một chút (xem thí nghiệm bên dưới). Vì vậy em không dùng con số 1.7x làm kết luận.
 
 ## 6. Thí nghiệm thêm: proxy có xếp hạng đúng không?
 
@@ -97,7 +97,9 @@ Train đầy đủ (10 epoch, 60,000 ảnh, cùng seed 0) 5 kiến trúc đáng 
 - Train đầy đủ thì mọi kiến trúc gần nhau: proxy trải hơn 3%, train đầy đủ chỉ chênh 17 lỗi. Các vị trí liền nhau chỉ hơn kém 3–5 lỗi, trong vùng nhiễu.
 - Cặp suýt thắng hòa nhau hoàn toàn (51 lỗi). Khi accuracy ngang nhau thì xét chi phí: d4-w12-k3 nhỏ hơn và nhanh hơn, nên lựa chọn của NAS vẫn đúng (phần nào nhờ may).
 - Model to nhất có accuracy cao nhất, nhưng so với kiến trúc NAS chọn thì to hơn 11.7 lần, chậm hơn 2.1 lần để đổi lấy 8 lỗi ít hơn (trong vùng nhiễu). "Tốt nhất" phụ thuộc vào ngân sách.
-- Latency của baseline và kiến trúc NAS chọn lần này gần bằng nhau (0.47 so với 0.49 ms), không lặp lại được "nhanh hơn 1.7x" của lần chạy chính. Dù d4-w12-k3 ít phép nhân-cộng hơn khoảng 5 lần (khoảng 1.5 triệu so với 7.4 triệu mỗi ảnh), model quá nhỏ chạy từng ảnh trên CPU bị chi phí cố định mỗi lớp chiếm phần lớn, mà d4 lại có nhiều lớp hơn. Điều lặp lại được: kernel 5 luôn chậm hơn rõ rệt.
+- Lần đo này, kiến trúc NAS chọn còn chậm hơn baseline một chút (0.49 so với 0.47 ms), trái ngược với "nhanh hơn 1.7x" của lần chạy chính.
+- Bản thân phép đo latency cũng không ổn định: cùng baseline d3-w32-k3, lần chạy chính đo được 0.76 ms, lần này 0.47 ms. Mức dao động này lớn hơn cả chênh lệch giữa hai kiến trúc, nên với cách đo hiện tại em không kết luận được kiến trúc nào nhanh hơn.
+- Một cách giải thích (chưa kiểm chứng): dù d4-w12-k3 ít phép nhân-cộng hơn khoảng 5 lần (khoảng 1.5 triệu so với 7.4 triệu mỗi ảnh), model quá nhỏ chạy từng ảnh trên CPU bị chi phí cố định mỗi lớp chiếm phần lớn, mà d4 lại có nhiều lớp hơn. Điều lặp lại được: kernel 5 luôn chậm hơn rõ rệt.
 - Baseline train lại cùng seed ra 99.40% (lần chạy chính 99.37%), khớp nhau.
 
 ### Code để chạy lại
@@ -127,6 +129,6 @@ Thứ tự kiến trúc trong random search phụ thuộc seed, chạy lại not
 
 ## 7. Điều em rút ra
 
-- NAS giúp tìm ra kiến trúc nhỏ hơn 1.65x với accuracy ngang baseline, từ đó mang đến lợi thế về size, tuy nhiên lợi thế về latency thì không ổn định.
+- NAS giúp tìm ra kiến trúc nhỏ hơn 1.65x với accuracy ngang baseline, nên có lợi thế về size. Về latency thì em chưa thấy lợi thế: lần đo lại kiến trúc NAS chọn còn chậm hơn baseline một chút, và phép đo latency trên CPU dao động lớn hơn chênh lệch giữa hai kiến trúc.
 - Sử dụng proxy là đủ để loại kiến trúc tệ và xếp hạng thô, nhưng không phân định được các kiến trúc sát nhau, và thiên vị nhẹ chống model lớn.
 - Notebook gợi ý NAS kết hợp được với các bài trước theo thứ tự tìm kiến trúc, rồi distill, prune, quantize, em sẽ thử sau.
