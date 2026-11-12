@@ -1,0 +1,26 @@
+config,student,alpha,T,seed,epochs,errors,acc,train_s,device
+student_a0,student,0.0,4.0,0,15,76,99.24,228,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a0.7,student,0.7,4.0,0,15,60,99.40,231,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a1,student,1.0,4.0,0,15,57,99.43,230,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+tiny_a0,tiny,0.0,4.0,0,15,104,98.96,222,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+tiny_a0.7,tiny,0.7,4.0,0,15,113,98.87,232,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a0,student,0.0,4.0,1,15,72,99.28,229,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a0.7,student,0.7,4.0,1,15,63,99.37,236,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a1,student,1.0,4.0,1,15,59,99.41,249,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+tiny_a0,tiny,0.0,4.0,1,15,111,98.89,231,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+tiny_a0.7,tiny,0.7,4.0,1,15,113,98.87,229,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a0,student,0.0,4.0,2,15,75,99.25,228,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a0.7,student,0.7,4.0,2,15,64,99.36,237,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a1,student,1.0,4.0,2,15,63,99.37,232,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+tiny_a0,tiny,0.0,4.0,2,15,136,98.64,226,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+tiny_a0.7,tiny,0.7,4.0,2,15,93,99.07,228,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a0,student,0.0,4.0,3,15,69,99.31,245,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a0.7,student,0.7,4.0,3,15,59,99.41,268,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a1,student,1.0,4.0,3,15,57,99.43,231,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+tiny_a0,tiny,0.0,4.0,3,15,118,98.82,227,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+tiny_a0.7,tiny,0.7,4.0,3,15,107,98.93,232,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a0,student,0.0,4.0,4,15,64,99.36,224,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a0.7,student,0.7,4.0,4,15,65,99.35,229,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+student_a1,student,1.0,4.0,4,15,60,99.40,231,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+tiny_a0,tiny,0.0,4.0,4,15,117,98.83,227,NVIDIA GeForce RTX 3050 Ti Laptop GPU
+tiny_a0.7,tiny,0.7,4.0,4,15,96,99.04,215,NVIDIA GeForce RTX 3050 Ti Laptop GPU
