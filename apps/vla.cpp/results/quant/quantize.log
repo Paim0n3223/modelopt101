@@ -19,3 +19,5 @@ smolvla-q5_1-vis.gguf    612230816 bytes  0.612 GB
 smolvla-q5_1.gguf    718399136 bytes  0.718 GB
 smolvla-q8_0-vis.gguf    740763296 bytes  0.741 GB
 smolvla-q8_0.gguf    820389536 bytes  0.820 GB
+Q4_0: quantized 225/791 tensors, weights 1.13 GB -> 0.66 GB (58%)
+Q4_0: quantized 297/791 tensors, weights 1.13 GB -> 0.54 GB (48%)

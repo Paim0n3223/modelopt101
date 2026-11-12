@@ -1,0 +1,12 @@
+== 04:35:11 q4_fa_mmdef  gguf=smolvla-q4_0.gguf  flags=[--flash-attn --mm-prec default]  tasks=[0 1 2 3 4 5 6 7 8 9]  episodes=4
+   04:42:03 task 0: Success rate: 0.00%  (0/4)  (409s)
+   04:48:48 task 1: Success rate: 25.00%  (1/4)  (405s)
+   04:55:37 task 2: Success rate: 0.00%  (0/4)  (409s)
+   05:01:44 task 3: Success rate: 25.00%  (1/4)  (367s)
+   05:04:38 task 4: Success rate: 100.00%  (4/4)  (174s)
+   05:09:41 task 5: Success rate: 75.00%  (3/4)  (303s)
+   05:16:35 task 6: Success rate: 0.00%  (0/4)  (414s)
+   05:25:41 task 7: Success rate: 0.00%  (0/4)  (546s)
+   05:32:25 task 8: Success rate: 0.00%  (0/4)  (404s)
+   05:37:34 task 9: Success rate: 50.00%  (2/4)  (309s)
+== 05:38:06 done

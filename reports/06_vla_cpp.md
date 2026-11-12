@@ -193,7 +193,7 @@ Cách đo:
 - `libero_object` (10 task gắp vật bỏ vào giỏ), client của vla.cpp qua `scripts/run_libero_sr.sh`. Mỗi bước gọi model một lần (`n_action_steps = 1`), tối đa 500 bước mỗi episode.
 - Seed 42: episode thứ k của mọi cấu hình có cùng trạng thái ban đầu, nên so được từng cặp (McNemar).
 - Sàng lọc 10 × 4 = 40 episode; chính thức 10 × 20 = 200 episode. SR kèm khoảng tin cậy Wilson 95%.
-- Tên cấu hình: `q8v` / `q4v` = Q8_0 / Q4_0 cả vision; `fa` = `--flash-attn`; `mmdef` = `--mm-prec default`; `s5` = `--num-steps 5`.
+- Tên cấu hình: `q8v` / `q4v` = Q8_0 / Q4_0 cả vision; `q4` = Q4_0, giữ vision ở BF16; `fa` = `--flash-attn`; `mmdef` = `--mm-prec default`; `s5` = `--num-steps 5`.
 
 Sàng lọc (10 task × 4 episode):
 
@@ -213,6 +213,22 @@ Nhận xét của em sau vòng sàng lọc:
   - `q8v_fa_mmdef_s5`: 37/40, nhanh nhất (99.5 ms, −41%);
   - `bf16_fa_mmdef_s5`: 35/40, 113.3 ms (−33%), giữ nguyên trọng số BF16;
   - `q8v_fa_mmdef`: 35/40, 121.8 ms (−28%), giữ đủ 10 bước denoise.
+
+**Q4 không quantize vision** (bổ sung sau feedback của mentor)
+- Q4v sập, nhưng em mới đo bản quantize cả vision, nên chưa biết lỗi nằm ở backbone hay ở vision. Em chạy thêm `q4_fa_mmdef`: Q4_0 cho backbone, giữ vision ở BF16, cùng flag và cùng 10 bước denoise. Cấu hình này khác `q4v_fa_mmdef` đúng một biến.
+- Trước khi chạy SR, em đo độ lệch `rel` trên 100 request thật (cách đo ở mục 4.5) và latency bằng vla-bench.
+
+| Cấu hình | rel | SR sàng lọc | 95% CI | So theo cặp với `q4_fa_mmdef` (McNemar p) | Server total ms | VRAM (vla-bench) |
+|---|--:|--:|---|--:|--:|--:|
+| bf16 | 0 | 35/40 | 74–95% | < 0.001 | 168.5 | 2039 MiB |
+| q4v_fa_mmdef | 0.258 | 16/40 | 26–55% | 0.33 | 123.2 | 639 MiB |
+| q4_fa_mmdef | 0.244 | 11/40 | 16–43% | – | 138.9 | 755 MiB |
+
+- Giữ vision ở BF16 không cứu được SR: 11/40, không khác biệt có ý nghĩa so với 16/40 của q4v, trong khi cả hai đều kém xa bản gốc. Như vậy SR sập là do Q4 ở backbone, không phải do quantize vision.
+- `rel` dự đoán đúng điều này trước khi chạy SR: bỏ quantize vision chỉ giảm độ lệch từ 0.258 xuống 0.244.
+- Episode thành công cần trung bình 249 bước (bản gốc khoảng 160), tức robot lúng túng hơn hẳn, giống q4v.
+- Cấu hình này còn chậm hơn q4v khoảng 15 ms vì vision chạy BF16, nên không có lý do để dùng.
+- File Q4 không vision có 225 tensor được quantize, gần đúng bằng 32 layer × 7 ma trận của LM, nên em đoán "backbone" ở đây là LM, còn action expert vẫn là BF16 như file Q8 (mục 4.4). Em chưa kiểm tra kiểu từng tensor trong file Q4.
 
 Vòng chính thức (10 task × 20 episode, cùng seed):
 
@@ -478,7 +494,7 @@ Sau phần pruning, em muốn biết trên nền cấu hình đề xuất q8v_s5
   - flash-attn (khoảng 20 ms) chỉ tác động lên vision: nó không phải ghi và đọc ma trận attention 1024×1024 ra VRAM, và bỏ được kernel softmax riêng.
   - mm-prec default (khoảng 10 ms) giữ trọng số của LM và action expert ở BF16 thay vì nới lên FP32, nên số byte phải đọc giảm một nửa và VRAM giảm khoảng 770 MiB. Tốc độ chỉ tăng vừa phải, vì action expert bị giới hạn bởi số kernel chứ không phải băng thông.
 - **Giảm số bước denoise** (10 → 5 → 4): khoảng 21 ms cho lần giảm từ 10 xuống 5 bước, thêm khoảng 5 ms cho lần giảm từ 5 xuống 4 bước. Đây là cách hiệu quả nhất với action expert, vì nó bớt hẳn số lần chạy (bớt kernel) thay vì chỉ làm từng kernel nhẹ đi.
-- **Quantize Q8 cả vision:** khoảng 14 ms, và VRAM giảm thêm khoảng 370 MiB (1201 xuống 835 MiB khi đo bằng vla-bench). Cộng với mm-prec, VRAM khi chạy SR giảm một nửa (2457 xuống 1227 MiB). Kernel int8 làm GEMM của vision nhanh hơn khoảng 25 ms, nhưng mất lại khoảng 19 ms cho các kernel phụ, vì kernel gộp của vla.cpp chỉ hỗ trợ BF16. Q4 thì không nhanh hơn Q8 mà SR lại sập (16/40).
+- **Quantize Q8 cả vision:** khoảng 14 ms, và VRAM giảm thêm khoảng 370 MiB (1201 xuống 835 MiB khi đo bằng vla-bench). Cộng với mm-prec, VRAM khi chạy SR giảm một nửa (2457 xuống 1227 MiB). Kernel int8 làm GEMM của vision nhanh hơn khoảng 25 ms, nhưng mất lại khoảng 19 ms cho các kernel phụ, vì kernel gộp của vla.cpp chỉ hỗ trợ BF16. Q4 thì không nhanh hơn Q8 mà SR lại sập (16/40). Giữ vision ở BF16 cũng không cứu được (11/40), nên phần bị hỏng khi xuống 4 bit nằm ở backbone.
 - **Cấu hình đề xuất:** `q8v_fa_mmdef_s4`: 96.1 ms (nhanh hơn bản gốc 43.7%), SR 87.0% (bản gốc 87.5%), VRAM giảm một nửa.
 
 **Pruning**
@@ -509,3 +525,4 @@ Tất cả nằm trong `apps/vla.cpp/`.
 | Width pruning | `width_diag.py`, `prune_width.py`, `make_width_gguf.sh`, `prune_latency.txt` | `results/prune/width/`, `results/prune/latency/` |
 | Bù trọng số | `compensate_diag.py`, `prune_comp_latency.txt` | `results/prune/comp/`, `comp_saved/`, `latency_comp/`, `results/libero/prune_comp/` |
 | Số bước denoise | `steps_configs.txt` | `results/steps/` |
+| Q4 không quantize vision | `sr_q4_novision.txt`, `q4_novision_latency.txt` | `results/quant/q4_novision/`, `results/libero/q4_novision/` |

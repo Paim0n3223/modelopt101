@@ -1,0 +1,7 @@
+# Q4_0 without quantizing the vision tower (mentor feedback on the weekly report of 2026-11-07):
+# q4v_fa_mmdef (Q4_0 + vision) collapsed to 16/40 in the SR screen; this config keeps vision in BF16 and
+# differs from it only in the vision tower, to tell whether the collapse comes from the backbone or from vision.
+# Used by run_replay.sh (offline deviation) and run_libero_sr.sh (SR screen, 10 tasks x 4 episodes).
+# File made with: scripts/quantize_gguf.py --in smolvla-libero.gguf --out smolvla-q4_0.gguf --type Q4_0   (no --vision)
+# name|ENV (VLA_GGUF=... picks the checkpoint)|vla-server flags
+q4_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_0.gguf|--flash-attn --mm-prec default

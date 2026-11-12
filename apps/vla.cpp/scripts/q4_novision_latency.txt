@@ -1,0 +1,8 @@
+# Latency of Q4_0 with and without the vision tower quantized, in one session with the same protocol
+# (run_flags.sh with WARMUP=3 REPS=20: vla-bench --images 2 --size 512, 1 process per config).
+# Reference for analyze_flags.py = bf16. All quantized configs use the same flags and 10 denoising steps.
+# name|ENV (VLA_GGUF=... picks the checkpoint)|vla-bench flags
+bf16||
+q8v_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default
+q4v_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_0-vis.gguf|--flash-attn --mm-prec default
+q4_fa_mmdef|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q4_0.gguf|--flash-attn --mm-prec default
