@@ -78,17 +78,20 @@ Các thí nghiệm chạy trong Colab, không commit vào notebook.
 
 ### A. Vì sao chậm: Triton có dùng tensor core không?
 
-Em đếm các lệnh trong PTX (mã trung gian mà Triton sinh ra):
+Em kiểm tra ở ba mức: PTX (mã trung gian Triton sinh ra), SASS (mã máy cuối cùng chạy trên GPU, đọc bằng `cuobjdump -sass`) và tên kernel mà cuBLAS gọi khi chạy `torch.matmul` (đọc bằng `torch.profiler`). Kernel Triton dùng cấu hình mặc định (tile 64×64, BLOCK_K 32).
 
-| | Kết quả |
+| Mức kiểm tra | Kết quả |
 |---|---|
-| Lệnh tensor core (`mma.sync`) | 0 |
-| Lệnh nhân-cộng thường (`fma.rn`) | 1024 |
-| Compute capability | (7, 5) |
+| PTX của kernel Triton | 0 lệnh `mma`, 1024 lệnh `fma.rn.f32` |
+| SASS của kernel Triton | 0 lệnh `HMMA` (tensor core), 1024 lệnh `FFMA` (nhân-cộng FP32 trên CUDA core) |
+| Kernel cuBLAS ở cỡ 1024 và 4096 | `turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_stages_32x1_nn` |
+| GPU, compute capability | Tesla T4, (7, 5) |
 
-- Trong PTX, kernel không có lệnh tensor core nào, chỉ có lệnh nhân-cộng thường. Như vậy trên T4, Triton 3.6 biên dịch `tl.dot` thành phép tính trên CUDA core.
-- Giới hạn của bằng chứng này: PTX chưa phải mã máy cuối cùng. Em chưa kiểm tra mã máy (SASS, tìm lệnh `HMMA`) và chưa xác nhận bằng profiler rằng cuBLAS dùng tensor core trong lần đo này.
-- Không dùng tensor core chưa giải thích hết độ chậm. Kernel chỉ đạt khoảng 1 TFLOP/s, trong khi đỉnh của CUDA core thường trên T4 là khoảng 8 TFLOP/s ở FP32 (theo thông số của NVIDIA). Tức là ngay cả khi chỉ dùng CUDA core, kernel vẫn chậm hơn mức có thể đạt khoảng 8 lần.
+- Ở cả PTX lẫn mã máy, kernel Triton không có lệnh tensor core nào. Toàn bộ phép nhân trong `tl.dot` được biên dịch thành lệnh nhân-cộng FP32 thường (`FFMA`) trên CUDA core.
+- Số 1024 khớp với cách chia việc: mỗi lần lặp theo K, một tile cần 64 × 64 × 32 phép nhân-cộng, chia cho 128 luồng (4 warp, mặc định của Triton) là 1024 lệnh mỗi luồng.
+- Tên kernel của cuBLAS chứa `s1688gemm`, tức dùng lệnh tensor core kích thước 16×8×8 của đời Turing, input FP16 và cộng dồn FP32. Đây là suy ra từ tên kernel; em không đọc SASS của cuBLAS.
+- Lưu ý về phiên bản: lần kiểm tra này chạy với Triton 3.8.0 (Colab đã cập nhật), còn các bảng benchmark ở mục 5 chạy với Triton 3.6.0. Lần đếm PTX trước đó với Triton 3.6.0 cũng cho 0 lệnh `mma` và 1024 lệnh `fma.rn`.
+- Không dùng tensor core chưa giải thích hết độ chậm. Vì lệnh tính là FP32, mức trần phù hợp để so là đỉnh FP32 của CUDA core trên T4, khoảng 8 TFLOP/s (theo thông số của NVIDIA). Kernel chỉ đạt khoảng 1 TFLOP/s, tức ngay cả khi chỉ dùng CUDA core, kernel vẫn chậm hơn mức có thể đạt khoảng 8 lần.
 - Một nguyên nhân khác em đã thấy là tràn thanh ghi: cấu hình tile mặc định chạm trần 255 thanh ghi và bị spill (mục 6C). Nhưng ngay cả tile 32×32 không spill cũng chỉ đạt 1.54 TFLOP/s, nên vẫn còn nguyên nhân em chưa tìm ra.
 - Cùng một dòng `tl.dot`, chạy nhanh hay chậm phụ thuộc cả compiler, đời GPU lẫn cấu hình tile. Đây là ví dụ cho câu "kernel optimization is hardware-constrained" trong slide.
 - GPU trên laptop của em (RTX 3050 Ti, đời Ampere, compute capability 8.6) có thể cho kết quả khác, nhưng Triton không chạy chính thức trên Windows (cần WSL2), nên em chưa thử.
@@ -134,8 +137,25 @@ ck = matmul_kernel[grid](
     a.stride(0), a.stride(1), b.stride(0), b.stride(1), c_chk.stride(0), c_chk.stride(1),
     BLOCK_M=64, BLOCK_N=64, BLOCK_K=32, GROUP_M=8,
 )
+import re, subprocess
+from collections import Counter
 ptx = ck.asm["ptx"]
-print(ptx.count("mma.sync"), ptx.count("fma.rn"), torch.cuda.get_device_capability())
+print("PTX mma:", ptx.count("mma."), dict(Counter(re.findall(r"fma\.rn\.\w+", ptx))), torch.cuda.get_device_capability())
+
+# A: đếm lệnh trong SASS (mã máy)
+open("/tmp/k.cubin", "wb").write(ck.asm["cubin"])
+sass = subprocess.run(["cuobjdump", "-sass", "/tmp/k.cubin"], capture_output=True, text=True).stdout
+print("SASS:", dict(Counter(re.findall(r"\b(HMMA|IMMA|FFMA|HFMA2|FMUL|HMUL2)\b", sass))))
+
+# A: kernel mà cuBLAS gọi
+from torch.profiler import profile, ProfilerActivity
+for s in (1024, 4096):
+    x = torch.randn(s, s, device=device, dtype=DTYPE)
+    y = torch.randn(s, s, device=device, dtype=DTYPE)
+    torch.matmul(x, y); torch.cuda.synchronize()
+    with profile(activities=[ProfilerActivity.CUDA]) as prof:
+        torch.matmul(x, y); torch.cuda.synchronize()
+    print(s, sorted({e.key for e in prof.key_averages() if e.device_type == torch.autograd.DeviceType.CUDA}))
 
 # B: ma trận không vuông
 for Ms, Ns, Ks in [(500, 300, 700), (512, 4096, 1024), (1000, 1000, 1000), (77, 33, 129)]:
