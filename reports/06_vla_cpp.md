@@ -487,6 +487,26 @@ Sau phần pruning, em muốn biết trên nền cấu hình đề xuất q8v_s5
 - **Cấu hình đề xuất cuối cùng: `q8v_fa_mmdef_s4`** (Q8_0 cả vision, `--flash-attn --mm-prec default --num-steps 4`): 96.1 ms, nhanh hơn bản gốc 43.7%, SR 87.0%, VRAM giảm một nửa.
 - Trên nền cấu hình này, các cách nhanh thêm đều phải trả bằng SR. Giảm số bước đơn giản và rẻ hơn ghép pruning.
 
+### 4.7. Kiểm tra trên libero_10 (bổ sung sau feedback của mentor)
+
+Mọi phép đo SR ở trên đều dùng `libero_object`. Theo gợi ý của mentor, em đo thêm cấu hình đề xuất trên `libero_10`, bộ 10 task dài, mỗi task gồm hai việc nối tiếp nhau (ví dụ bỏ hai vật vào giỏ).
+
+Cách đo:
+- Giống vòng chính thức ở mục 4.3: 10 task × 20 episode, seed 42, `n_action_steps = 1`, tối đa 500 bước mỗi episode (cũng là giới hạn repo đặt cho `libero_10`).
+- Đo cả bản gốc `bf16` để làm mốc, vì không có mốc thì không biết SR thấp là do cấu hình tối ưu hay do bản thân bộ task khó.
+- Cấu hình ở `scripts/sr_libero10.txt`, kết quả ở `results/libero/libero10/`.
+
+| Cấu hình | SR | 95% CI | Số bước TB (episode thành công) | Server total / vision / inf ms | Thời gian chạy |
+|---|--:|---|--:|---|--:|
+| bf16 | 39.0% (78/200) | 33–46% | 291 | 193.4 / 101.0 / 91.7 | 365 phút |
+| q8v_fa_mmdef_s4 | 41.0% (82/200) | 34–48% | 267 | 103.5 / 62.6 / 40.0 | 240 phút |
+
+Nhận xét:
+- Cấu hình đề xuất không làm giảm SR trên libero_10: 41.0% so với 39.0%. So theo từng cặp episode, 44 cặp cùng thành công, 38 cặp chỉ s4 thành công, 34 cặp chỉ bf16 thành công (McNemar p = 0.72). Server nhanh hơn bản gốc khoảng 46% trong cùng lượt chạy.
+- Điểm từng task chênh nhau khá nhiều giữa hai cấu hình (ví dụ task 2 được 11/20 so với 6/20), nhưng có tới 72/200 cặp episode cho kết quả trái nhau, nên em chỉ kết luận dựa trên tổng và kiểm định theo cặp.
+- libero_10 khó hơn libero_object nhiều: bản gốc chỉ đạt 39% so với 87.5%, và task 4, task 8 gần như luôn thất bại với cả hai cấu hình. Em chưa có SR tham chiếu của checkpoint này (chạy bằng PyTorch hoặc số công bố), nên chưa biết 39% có phải là mức bình thường của model hay engine đang làm giảm SR.
+- Latency của bf16 ở lượt này cao hơn ở libero_object (193.4 so với 170.7 ms). Theo log GPU, xung SM trung bình chỉ khoảng 1440 MHz so với khoảng 1570 MHz ở lượt libero_object, dù nhiệt độ thấp hơn (73 so với 84 °C). Em đoán là do giới hạn công suất hoặc chế độ nguồn của laptop khi chạy qua đêm, và phần inference tăng thêm có thể do câu lệnh của libero_10 dài hơn nên prefill nhiều token hơn; cả hai đều chưa kiểm chứng. Vì vậy em chỉ so latency giữa hai cấu hình trong cùng lượt này.
+
 ## 5. Điều em rút ra
 
 **Cái gì đem lại lợi ích lớn, và vì sao** (với SmolVLA, không sửa vla.cpp, không train)
@@ -495,7 +515,7 @@ Sau phần pruning, em muốn biết trên nền cấu hình đề xuất q8v_s5
   - mm-prec default (khoảng 10 ms) giữ trọng số của LM và action expert ở BF16 thay vì nới lên FP32, nên số byte phải đọc giảm một nửa và VRAM giảm khoảng 770 MiB. Tốc độ chỉ tăng vừa phải, vì action expert bị giới hạn bởi số kernel chứ không phải băng thông.
 - **Giảm số bước denoise** (10 → 5 → 4): khoảng 21 ms cho lần giảm từ 10 xuống 5 bước, thêm khoảng 5 ms cho lần giảm từ 5 xuống 4 bước. Đây là cách hiệu quả nhất với action expert, vì nó bớt hẳn số lần chạy (bớt kernel) thay vì chỉ làm từng kernel nhẹ đi.
 - **Quantize Q8 cả vision:** khoảng 14 ms, và VRAM giảm thêm khoảng 370 MiB (1201 xuống 835 MiB khi đo bằng vla-bench). Cộng với mm-prec, VRAM khi chạy SR giảm một nửa (2457 xuống 1227 MiB). Kernel int8 làm GEMM của vision nhanh hơn khoảng 25 ms, nhưng mất lại khoảng 19 ms cho các kernel phụ, vì kernel gộp của vla.cpp chỉ hỗ trợ BF16. Q4 thì không nhanh hơn Q8 mà SR lại sập (16/40). Giữ vision ở BF16 cũng không cứu được (11/40), nên phần bị hỏng khi xuống 4 bit nằm ở backbone.
-- **Cấu hình đề xuất:** `q8v_fa_mmdef_s4`: 96.1 ms (nhanh hơn bản gốc 43.7%), SR 87.0% (bản gốc 87.5%), VRAM giảm một nửa.
+- **Cấu hình đề xuất:** `q8v_fa_mmdef_s4`: 96.1 ms (nhanh hơn bản gốc 43.7%), SR 87.0% (bản gốc 87.5%), VRAM giảm một nửa. Trên bộ task dài libero_10, cấu hình này cũng không làm giảm SR (41.0% so với 39.0%).
 
 **Pruning**
 - Không fine-tune thì pruning chỉ đem lại lợi ích nhỏ, và phải có bù trọng số mới dùng được: bỏ 4 layer có bù giữ SR, nhanh hơn khoảng 3.5–5.5% ở bf16. Ghép lên cấu hình đề xuất thì không đáng, vì mỗi phần trăm tốc độ thêm đều phải trả bằng SR.
@@ -525,4 +545,5 @@ Tất cả nằm trong `apps/vla.cpp/`.
 | Width pruning | `width_diag.py`, `prune_width.py`, `make_width_gguf.sh`, `prune_latency.txt` | `results/prune/width/`, `results/prune/latency/` |
 | Bù trọng số | `compensate_diag.py`, `prune_comp_latency.txt` | `results/prune/comp/`, `comp_saved/`, `latency_comp/`, `results/libero/prune_comp/` |
 | Số bước denoise | `steps_configs.txt` | `results/steps/` |
+| SR trên libero_10 | `sr_libero10.txt` | `results/libero/libero10/` |
 | Q4 không quantize vision | `sr_q4_novision.txt`, `q4_novision_latency.txt` | `results/quant/q4_novision/`, `results/libero/q4_novision/` |

@@ -1,0 +1,8 @@
+# LIBERO-10 (long-horizon suite) for the recommended config and the original, as asked in the mentor
+# feedback on the weekly report of 2026-11-07. Same client, seed 42 and n_action_steps 1 as the
+# libero_object runs; the repo's episode limit for libero_10 is also 500 steps (eval/sim/libero/libero_env.py).
+# Run with TASK_SUITE=libero_10 and 20 episodes per task. Recommended config first; Ctrl+C and rerun the
+# same command to resume.
+# name|ENV (VLA_GGUF=... picks another checkpoint)|vla-server flags
+q8v_fa_mmdef_s4|VLA_GGUF=/home/qdung/models/smolvla-quant/smolvla-q8_0-vis.gguf|--flash-attn --mm-prec default --num-steps 4
+bf16||

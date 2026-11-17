@@ -1,0 +1,23 @@
+== 00:46:11 q8v_fa_mmdef_s4  gguf=smolvla-q8_0-vis.gguf  flags=[--flash-attn --mm-prec default --num-steps 4]  tasks=[0 1 2 3 4 5 6 7 8 9]  episodes=20
+   01:13:43 task 0: Success rate: 15.00%  (3/20)  (1648s)
+   01:37:21 task 1: Success rate: 45.00%  (9/20)  (1418s)
+   02:01:32 task 2: Success rate: 55.00%  (11/20)  (1451s)
+   02:21:39 task 3: Success rate: 70.00%  (14/20)  (1207s)
+   02:49:51 task 4: Success rate: 5.00%  (1/20)  (1692s)
+   03:04:25 task 5: Success rate: 80.00%  (16/20)  (874s)
+   03:26:38 task 6: Success rate: 50.00%  (10/20)  (1333s)
+   03:51:29 task 7: Success rate: 30.00%  (6/20)  (1491s)
+   04:22:44 task 8: Success rate: 5.00%  (1/20)  (1875s)
+   04:46:18 task 9: Success rate: 55.00%  (11/20)  (1414s)
+== 04:46:49 bf16  gguf=smolvla-libero.gguf  flags=[]  tasks=[0 1 2 3 4 5 6 7 8 9]  episodes=20
+   05:28:16 task 0: Success rate: 10.00%  (2/20)  (2482s)
+   06:05:23 task 1: Success rate: 40.00%  (8/20)  (2227s)
+   06:45:39 task 2: Success rate: 30.00%  (6/20)  (2416s)
+   07:12:47 task 3: Success rate: 80.00%  (16/20)  (1628s)
+   07:55:25 task 4: Success rate: 0.00%  (0/20)  (2558s)
+   08:21:51 task 5: Success rate: 70.00%  (14/20)  (1586s)
+   08:53:49 task 6: Success rate: 55.00%  (11/20)  (1918s)
+   09:30:42 task 7: Success rate: 35.00%  (7/20)  (2213s)
+   10:15:45 task 8: Success rate: 10.00%  (2/20)  (2703s)
+   10:51:38 task 9: Success rate: 60.00%  (12/20)  (2153s)
+== 10:52:08 done
