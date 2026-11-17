@@ -477,11 +477,13 @@ Sau phần pruning, em muốn biết trên nền cấu hình đề xuất q8v_s5
 | q8v_fa_mmdef_s4 | 0.096 | 36/40 |
 | cos_k4_comp | 0.142 | 30/40 |
 | cka_k4_comp | 0.168 | 28/40 |
+| q4_fa_mmdef (bổ sung sau, mục 4.3) | 0.244 | 11/40 |
 | q4v_fa_mmdef | 0.258 | 16/40 |
 | cka_k4 (không bù) | 0.447 | 2/40 |
 
-- rel xếp đúng thứ tự SR cho cả quantize, pruning và giảm số bước. Khoảng dưới 0.1 thì chưa thấy SR giảm; từ đó trở lên thì SR giảm dần.
-- Mới có 7 điểm, mỗi điểm SR lại có sai số ±10–15 điểm (40 episode), nên rel chỉ dùng để sàng lọc và xếp hạng, chưa dùng để dự đoán chính xác SR.
+- rel xếp gần đúng thứ tự SR cho cả quantize, pruning và giảm số bước. Khoảng dưới 0.1 thì chưa thấy SR giảm; từ đó trở lên thì SR giảm dần.
+- Có hai cặp bị đảo thứ tự: `cos_k2_comp` với `q8v_fa_mmdef_s4` (35/40 và 36/40), và hai bản Q4 (11/40 và 16/40). Cả hai cặp đều có rel sát nhau và SR chênh trong mức nhiễu của 40 episode (cặp Q4 có McNemar p = 0.33).
+- Mới có 8 điểm, mỗi điểm SR lại có sai số ±10–15 điểm (40 episode), nên rel chỉ dùng để sàng lọc và xếp hạng thô, chưa dùng để dự đoán chính xác SR hay phân biệt các cấu hình có rel gần nhau.
 
 **Kết luận**
 - **Cấu hình đề xuất cuối cùng: `q8v_fa_mmdef_s4`** (Q8_0 cả vision, `--flash-attn --mm-prec default --num-steps 4`): 96.1 ms, nhanh hơn bản gốc 43.7%, SR 87.0%, VRAM giảm một nửa.
@@ -523,7 +525,7 @@ Nhận xét:
 - Bù trọng số bằng công thức (không gradient, vài phút, vừa 4 GB VRAM) là điều em thấy đáng giá nhất trong phần này: cùng 8 layer bị bỏ, SR tăng từ 2/40 lên 28/40.
 
 **Bài học về cách đo**
-- Đo offline trên dữ liệu thật trước khi chạy SR: độ lệch trên 100 mẫu ghi lại từ LIBERO xếp đúng thứ tự SR, nên dùng được để sàng lọc thay cho SR mất 25–75 phút mỗi cấu hình. Còn độ lệch trên một input tổng hợp thì không dự đoán được SR.
+- Đo offline trên dữ liệu thật trước khi chạy SR: độ lệch trên 100 mẫu ghi lại từ LIBERO xếp gần đúng thứ tự SR (các cặp bị đảo đều chênh trong mức nhiễu), nên dùng được để sàng lọc thay cho SR mất 25–75 phút mỗi cấu hình. Còn độ lệch trên một input tổng hợp thì không dự đoán được SR.
 - Tách biến khi tìm nguyên nhân: hai lần em kết luận sai vì so hai cấu hình khác nhau nhiều hơn một biến (quantize vision ở mục 4.2, mm-prec ở mục 4.4).
 - Không đọc chênh lệch vài episode thành kết luận: ở 40 episode khoảng tin cậy rộng ±10–15 điểm (q8v_s5 đạt 37/40 ở sàng lọc nhưng chỉ 86% ở vòng chính thức).
 - Công cụ đo cũng có thể làm sai số: cờ đo theo phần của repo làm tổng thời gian tăng 54–60%, nên phải đối chiếu với nsys.
